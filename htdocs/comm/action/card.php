@@ -615,6 +615,8 @@ if (empty($reshook) && $action == 'add' && $usercancreate) {
 										$object->error .= '<br> - ' . $langs->trans('ErrorResourceUseInEvent', $obj->r_ref, $obj->ac_label . ' [' . $obj->ac_id . ']');
 									}
 									$object->errors[] = $object->error;
+
+									setEventMessages($object->error, null, 'errors');
 								}
 								$db->free($resql);
 							}
@@ -628,9 +630,12 @@ if (empty($reshook) && $action == 'add' && $usercancreate) {
 
 				unset($_SESSION['assignedtoresource']);
 
+
 				// Category association
-				$categories = GETPOST('categories', 'array');
-				$object->setCategories($categories);
+				if (!$error) {
+					$categories = GETPOST('categories', 'array');
+					$object->setCategories($categories);
+				}
 
 				unset($_SESSION['assignedtouser']);
 
@@ -639,7 +644,7 @@ if (empty($reshook) && $action == 'add' && $usercancreate) {
 				}
 
 				// Create reminders
-				if ($addreminder == 'on') {
+				if (!$error && $addreminder == 'on') {
 					$actionCommReminder = new ActionCommReminder($db);
 
 					$dateremind = dol_time_plus_duree($datep, -1 * $offsetvalue, $offsetunit);
@@ -685,6 +690,7 @@ if (empty($reshook) && $action == 'add' && $usercancreate) {
 					$db->commit();
 				}
 
+
 				// if (!empty($backtopage)) {
 				// 	dol_syslog("Back to ".$backtopage.($moreparam ? (preg_match('/\?/', $backtopage) ? '&'.$moreparam : '?'.$moreparam) : ''));
 				// 	header("Location: ".$backtopage.($moreparam ? (preg_match('/\?/', $backtopage) ? '&'.$moreparam : '?'.$moreparam) : ''));
@@ -710,7 +716,7 @@ if (empty($reshook) && $action == 'add' && $usercancreate) {
 			$donotclearsession = 1;
 		}
 
-		if ($eventisrecurring) {
+		if (!$error && $eventisrecurring) {
 			$dayoffset = 0;
 			$monthoffset = 0;
 			// We set first date of recurrence and offsets
@@ -879,8 +885,16 @@ if (empty($reshook) && $action == 'update' && $usercancreate) {
 			$datep = dol_mktime(0, 0, 0, GETPOSTINT("apmonth"), GETPOSTINT("apday"), GETPOSTINT("apyear"), $tzforfullday ? $tzforfullday : 'tzuserrel');
 			$datef = dol_mktime(23, 59, 59, GETPOSTINT("p2month"), GETPOSTINT("p2day"), GETPOSTINT("p2year"), $tzforfullday ? $tzforfullday : 'tzuserrel');
 		} else {
-			$datep = dol_mktime(GETPOSTINT("aphour"), GETPOSTINT("apmin"), GETPOSTINT("apsec"), GETPOSTINT("apmonth"), GETPOSTINT("apday"), GETPOSTINT("apyear"), 'tzuserrel');
-			$datef = dol_mktime(GETPOSTINT("p2hour"), GETPOSTINT("p2min"), GETPOSTINT("apsec"), GETPOSTINT("p2month"), GETPOSTINT("p2day"), GETPOSTINT("p2year"), 'tzuserrel');
+			if (!GETPOSTISSET('ap') && !GETPOSTISSET('aphour') && !GETPOSTISSET('apmin')) {	// If date fields are disabled, we keep old value
+				$datep = $object->datep;
+			} else {
+				$datep = dol_mktime(GETPOSTINT("aphour"), GETPOSTINT("apmin"), GETPOSTINT("apsec"), GETPOSTINT("apmonth"), GETPOSTINT("apday"), GETPOSTINT("apyear"), 'tzuserrel');
+			}
+			if (!GETPOSTISSET('p2') && !GETPOSTISSET('p2hour') && !GETPOSTISSET('p2min')) {	// If date fields are disabled, we keep old value
+				$datef = $object->datef;
+			} else {
+				$datef = dol_mktime(GETPOSTINT("p2hour"), GETPOSTINT("p2min"), GETPOSTINT("apsec"), GETPOSTINT("p2month"), GETPOSTINT("p2day"), GETPOSTINT("p2year"), 'tzuserrel');
+			}
 		}
 		//set end date to now if percentage is set to 100 and end date not set
 		$datef = (!$datef && $percentage == 100) ? dol_now() : $datef;
@@ -1906,14 +1920,10 @@ if ($action == 'create') {
 }
 
 // View or edit
-if ($id > 0) {
+if ($id > 0 && $action != 'create') {
 	$result1 = $object->fetch($id);
 	if ($result1 <= 0) {
-		$langs->load("errors");
-		print $langs->trans("ErrorRecordNotFound");
-
-		llxFooter();
-		exit;
+		recordNotFound('', 0);
 	}
 
 	$result2 = $object->fetch_thirdparty();
@@ -1941,8 +1951,8 @@ if ($id > 0) {
 		foreach ($socpeopleassigned as $tmpid) {
 			$object->socpeopleassigned[$id] = array('id' => $tmpid);
 		}
-		$object->contact_id   = GETPOSTINT("contactid");
-		$object->fk_project  = GETPOSTINT("projectid");
+		$object->contact_id = GETPOSTINT("contactid");
+		$object->fk_project = GETPOSTINT("projectid");
 
 		$object->note_private = GETPOST("note", 'restricthtml');
 	}
@@ -1952,18 +1962,6 @@ if ($id > 0) {
 		exit;
 	}
 
-	/*
-	if ($object->authorid > 0) {
-		$tmpuser = new User($db);
-		$res = $tmpuser->fetch($object->authorid);
-		$object->author = $tmpuser;
-	}
-	if ($object->usermodid > 0) {
-		$tmpuser = new User($db);
-		$res = $tmpuser->fetch($object->usermodid);
-		$object->usermod = $tmpuser;
-	}
-	*/
 
 	/*
 	 * Show tabs
@@ -2148,10 +2146,6 @@ if ($id > 0) {
 
 		// Date start - end
 		print '<tr><td class="nowrap">';
-		/*print '<span class="fieldrequired">'.$langs->trans("DateActionStart").'</span>';
-		print ' - ';
-		print '<span id="dateend"'.($object->type_code == 'AC_RDV' ? ' class="fieldrequired"' : '').'>'.$langs->trans("DateActionEnd").'</span>';
-		*/
 		print '</td><td>';
 		$tzforfullday = getDolGlobalString('MAIN_STORE_FULL_EVENT_IN_GMT');
 		print $form->selectDate($datep ? $datep : $object->datep, 'ap', 1, 1, 0, "action", 1, 2, ($caneditdateorowner ? 0 : 1), 'fulldaystart', '', '', '', 1, '', '', $object->fulldayevent ? ($tzforfullday ? $tzforfullday : 'tzuserrel') : 'tzuserrel');

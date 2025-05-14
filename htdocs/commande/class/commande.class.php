@@ -42,6 +42,7 @@ require_once DOL_DOCUMENT_ROOT.'/product/class/product.class.php';
 require_once DOL_DOCUMENT_ROOT.'/margin/lib/margins.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/multicurrency/class/multicurrency.class.php';
 require_once DOL_DOCUMENT_ROOT.'/societe/class/societe.class.php';
+require_once DOL_DOCUMENT_ROOT.'/subtotals/class/commonsubtotal.class.php';
 
 
 /**
@@ -49,6 +50,8 @@ require_once DOL_DOCUMENT_ROOT.'/societe/class/societe.class.php';
  */
 class Commande extends CommonOrder
 {
+	use CommonSubtotal;
+
 	/**
 	 * @var string ID to identify managed object
 	 */
@@ -947,7 +950,7 @@ class Commande extends CommonOrder
 	}
 
 	/**
-	 *	Create order
+	 *	Create sale order
 	 *	Note that this->ref can be set or empty. If empty, we will use "(PROV)"
 	 *
 	 *	@param		User	$user 		Object user that make creation
@@ -1083,7 +1086,7 @@ class Commande extends CommonOrder
 
 					if (getDolGlobalString('MAIN_CREATEFROM_KEEP_LINE_ORIGIN_INFORMATION')) {
 						$originid = $line->origin_id;
-						$origintype = $line->origin;
+						$origintype = empty($line->origin_type) ? $line->origin : $line->origin_type;
 					} else {
 						$originid = $line->id;
 						$origintype = $this->element;
@@ -1179,7 +1182,7 @@ class Commande extends CommonOrder
 					}
 
 					if (!$error && $this->id && getDolGlobalString('MAIN_PROPAGATE_CONTACTS_FROM_ORIGIN') && !empty($this->origin) && !empty($this->origin_id)) {   // Get contact from origin object
-						$originforcontact = $this->origin;
+						$originforcontact = empty($this->origin_type) ? $this->origin : $this->origin_type;
 						$originidforcontact = $this->origin_id;
 						if ($originforcontact == 'shipping') {     // shipment and order share the same contacts. If creating from shipment we take data of order
 							require_once DOL_DOCUMENT_ROOT.'/expedition/class/expedition.class.php';
@@ -1827,6 +1830,13 @@ class Commande extends CommonOrder
 						}
 
 						$this->lines[] = $this->line;
+					} else {
+						foreach ($this->lines as $line) {
+							if ($line->id == $origin_id) {
+								$this->line->extraparams = $line->extraparams;
+								$this->line->setExtraParameters();
+							}
+						}
 					}
 
 					$this->db->commit();

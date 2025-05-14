@@ -50,6 +50,7 @@ require_once DOL_DOCUMENT_ROOT.'/product/class/product.class.php';
 require_once DOL_DOCUMENT_ROOT.'/societe/class/client.class.php';
 require_once DOL_DOCUMENT_ROOT.'/margin/lib/margins.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/multicurrency/class/multicurrency.class.php';
+require_once DOL_DOCUMENT_ROOT.'/subtotals/class/commonsubtotal.class.php';
 
 if (isModEnabled('accounting')) {
 	require_once DOL_DOCUMENT_ROOT.'/core/class/html.formaccounting.class.php';
@@ -63,6 +64,8 @@ if (isModEnabled('accounting')) {
  */
 class Facture extends CommonInvoice
 {
+	use CommonSubtotal;
+
 	/**
 	 * @var string ID to identify managed object
 	 */
@@ -1102,6 +1105,13 @@ class Facture extends CommonInvoice
 						$_facrec->lines[$i]->ref_ext,
 						1
 					);
+
+					foreach ($this->lines as $line) {
+						if ($line->id == $result_insert) {
+							$line->extraparams = $_facrec->lines[$i]->extraparams;
+							$line->setExtraParameters();
+						}
+					}
 
 					// Defined the new fk_parent_line
 					if ($result_insert > 0 && $_facrec->lines[$i]->product_type == 9) {
@@ -3854,14 +3864,14 @@ class Facture extends CommonInvoice
 				if (preg_match('/^[\(]?PROV/i', $this->ref)) {
 					// Now we rename also files into index
 					$sql = 'UPDATE '.MAIN_DB_PREFIX."ecm_files set filename = CONCAT('".$this->db->escape($this->newref)."', SUBSTR(filename, ".(strlen($this->ref) + 1).")), filepath = 'facture/".$this->db->escape($this->newref)."'";
-					$sql .= " WHERE filename LIKE '".$this->db->escape($this->ref)."%' AND filepath = 'facture/".$this->db->escape($this->ref)."' and entity = ".$conf->entity;
+					$sql .= " WHERE filename LIKE '".$this->db->escape($this->ref)."%' AND filepath = 'facture/".$this->db->escape($this->ref)."' and entity = ".(int) $conf->entity;
 					$resql = $this->db->query($sql);
 					if (!$resql) {
 						$error++;
 						$this->error = $this->db->lasterror();
 					}
 					$sql = 'UPDATE '.MAIN_DB_PREFIX."ecm_files set filepath = 'facture/".$this->db->escape($this->newref)."'";
-					$sql .= " WHERE filepath = 'facture/".$this->db->escape($this->ref)."' and entity = ".$conf->entity;
+					$sql .= " WHERE filepath = 'facture/".$this->db->escape($this->ref)."' and entity = ".(int) $conf->entity;
 					$resql = $this->db->query($sql);
 					if (!$resql) {
 						$error++;
@@ -4423,6 +4433,13 @@ class Facture extends CommonInvoice
 					}
 
 					$this->lines[] = $this->line;
+				} else {
+					foreach ($this->lines as $line) {
+						if ($line->id == $origin_id) {
+							$this->line->extraparams = $line->extraparams;
+							$this->line->setExtraParameters();
+						}
+					}
 				}
 
 				if ($result > 0) {

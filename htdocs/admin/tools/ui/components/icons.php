@@ -57,11 +57,18 @@ $switchDisplayLink = dol_buildpath($documentation->baseUrl . '/components/icons.
 $switchDisplayLinkIcon = $displayMode == 'kanban' ? 'fa fa-th' : 'fa fa-th-list';
 
 // Output sidebar
-$documentation->showSidebar(); ?>
+if (!GETPOST('hidenavmenu')) {
+	$documentation->showSidebar();
+}
+?>
 
 <div class="doc-wrapper">
 
-		<?php $documentation->showBreadCrumb(); ?>
+		<?php
+		if (!GETPOST('hidenavmenu')) {
+			$documentation->showBreadCrumb();
+		}
+		?>
 
 		<div class="doc-content-wrapper">
 
@@ -105,7 +112,11 @@ $documentation->showSidebar(); ?>
 				); ?>
 
 				<div class="right">
-					<?php print dolGetButtonTitle($revertDisplayName, '', $switchDisplayLinkIcon, $switchDisplayLink.'#img-picto-section-list', '', 1, ['forcenohideoftext'=>1]); ?>
+					<?php
+					if ($displayMode != 'icon-only') {
+						print dolGetButtonTitle($revertDisplayName, '', $switchDisplayLinkIcon, $switchDisplayLink.'#img-picto-section-list', '', 1, ['forcenohideoftext'=>1]);
+					}
+					?>
 				</div>
 
 				<div class="documentation-example">
@@ -135,7 +146,7 @@ $documentation->showSidebar(); ?>
 								</div>';
 							} else {
 								$tooltip = '<u>'.$langs->trans("DocCodeForMenuOrModuleBuilder").':</u><br>'.$iconName;
-								$tooltip .= '<br><u>'.$langs->trans("DocExampleForPHPCode").':</u><br>img_picto(\''.$labelAlt.'\', \''.$iconName.'\')';
+								$tooltip .= '<br><br><u>'.$langs->trans("DocExampleForPHPCode").':</u><br>img_picto(\''.$labelAlt.'\', \''.$iconName.'\')';
 								$iconCode = img_picto($tooltip, $iconName, '', 0, 0, 0, '', 'classfortooltip');
 								print '<span class="doc-icon-list-item">'.$iconCode;
 								print '<span class="doc-icon-hidden-name-for-search">'.$iconName.'</span></span>';
@@ -182,7 +193,11 @@ $documentation->showSidebar(); ?>
 				); ?>
 
 				<div class="right">
-					<?php print dolGetButtonTitle($revertDisplayName, '', $switchDisplayLinkIcon, $switchDisplayLink.'#icon-section-list', '', 1, ['forcenohideoftext'=>1]); ?>
+					<?php
+					if ($displayMode != 'icon-only') {
+						print dolGetButtonTitle($revertDisplayName, '', $switchDisplayLinkIcon, $switchDisplayLink.'#icon-section-list', '', 1, ['forcenohideoftext'=>1]);
+					}
+					?>
 				</div>
 
 				<div class="documentation-example">
