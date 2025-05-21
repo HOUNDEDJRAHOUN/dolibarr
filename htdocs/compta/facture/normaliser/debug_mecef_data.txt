@@ -1,0 +1,1165 @@
+Données reçues :
+Array
+(
+)
+
+Données normalisées :
+Array
+(
+    [dateTime] => 
+    [qrCode] => 
+    [codeMECeFDGI] => 
+    [counters] => 
+    [nim] => 
+)
+
+Options actuelles :
+Array
+(
+    [options_normalized_data] => {"dateTime":"","qrCode":"","codeMECeFDGI":"","counters":"","nim":""}
+    [options_qr_code] => 
+    [options_nim] => 
+    [options_counters] => 
+    [options_date_time] => 
+    [options_code_mecef_dgi] => 
+    [options_mecf_jwt_token] => 
+)
+
+Options après mise à jour :
+Array
+(
+    [options_normalized_data] => {"dateTime":"","qrCode":"","codeMECeFDGI":"","counters":"","nim":""}
+    [options_qr_code] => 
+    [options_nim] => 
+    [options_counters] => 
+    [options_date_time] => 
+    [options_code_mecef_dgi] => 
+    [options_mecf_jwt_token] => 
+    [options_is_normalized] => 1
+    [options_normalize_date] => 1747817195
+)
+
+Réponse API Invoice Post :
+Swagger\Client\Model\InvoiceResponseDto Object
+(
+    [container:protected] => Array
+        (
+            [uid] => 666db1d6-0a5a-4397-8e88-32d99d04ae27
+            [ta] => 0
+            [tb] => 18
+            [tc] => 0
+            [td] => 18
+            [taa] => 0
+            [tab] => 2504196
+            [tac] => 0
+            [tad] => 0
+            [tae] => 0
+            [taf] => 0
+            [hab] => 2122200
+            [had] => 0
+            [vab] => 381996
+            [vad] => 0
+            [aib] => 0
+            [ts] => 0
+            [total] => 2504196
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Get :
+Swagger\Client\Model\InvoiceDetailsDto Object
+(
+    [container:protected] => Array
+        (
+            [ifu] => 3201710143718
+            [aib] => 
+            [type] => FV
+            [items] => Array
+                (
+                    [0] => Swagger\Client\Model\ItemDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [code] => 
+                                    [name] => Clav
+                                    [price] => 2504196
+                                    [quantity] => 1
+                                    [tax_group] => B
+                                    [tax_specific] => 
+                                    [original_price] => 
+                                    [price_modification] => 
+                                )
+
+                        )
+
+                )
+
+            [client] => Swagger\Client\Model\ClientDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [ifu] => 3234567890987
+                            [name] => JAMES LE BRON
+                            [contact] => 61539729,pichichisolo@gmail.com
+                            [address] => PKota,  Calavi
+                        )
+
+                )
+
+            [operator] => Swagger\Client\Model\OperatorDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [id] => 
+                            [name] =>  SuperAdmin
+                        )
+
+                )
+
+            [payment] => Array
+                (
+                    [0] => Swagger\Client\Model\PaymentDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [name] => ESPECES
+                                    [amount] => 2504196
+                                )
+
+                        )
+
+                )
+
+            [reference] => 
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Confirm :
+Swagger\Client\Model\SecurityElementsDto Object
+(
+    [container:protected] => Array
+        (
+            [date_time] => 21/05/2025 09:47:50
+            [qr_code] => F;TS01000333;TESTGSH6FZ73SITIDD245CTX;3201710143718;20250521094750
+            [code_me_ce_fdgi] => TEST-GSH6-FZ73-SITI-DD24-5CTX
+            [counters] => 230/233 FV
+            [nim] => TS01000333
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Données reçues :
+Array
+(
+)
+
+Données normalisées :
+Array
+(
+    [dateTime] => 
+    [qrCode] => 
+    [codeMECeFDGI] => 
+    [counters] => 
+    [nim] => 
+)
+
+Options actuelles :
+Array
+(
+    [options_normalized_data] => {"dateTime":"","qrCode":"","codeMECeFDGI":"","counters":"","nim":""}
+    [options_qr_code] => 
+    [options_nim] => 
+    [options_counters] => 
+    [options_date_time] => 
+    [options_code_mecef_dgi] => 
+    [options_mecf_jwt_token] => 
+)
+
+Options après mise à jour :
+Array
+(
+    [options_normalized_data] => {"dateTime":"","qrCode":"","codeMECeFDGI":"","counters":"","nim":""}
+    [options_qr_code] => 
+    [options_nim] => 
+    [options_counters] => 
+    [options_date_time] => 
+    [options_code_mecef_dgi] => 
+    [options_mecf_jwt_token] => 
+    [options_is_normalized] => 1
+    [options_normalize_date] => 1747817269
+)
+
+Réponse API Invoice Post :
+Swagger\Client\Model\InvoiceResponseDto Object
+(
+    [container:protected] => Array
+        (
+            [uid] => a39569bc-e210-44c7-87ef-ede7ce47d3d6
+            [ta] => 0
+            [tb] => 18
+            [tc] => 0
+            [td] => 18
+            [taa] => 0
+            [tab] => 2504196
+            [tac] => 0
+            [tad] => 0
+            [tae] => 0
+            [taf] => 0
+            [hab] => 2122200
+            [had] => 0
+            [vab] => 381996
+            [vad] => 0
+            [aib] => 0
+            [ts] => 0
+            [total] => 2504196
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Get :
+Swagger\Client\Model\InvoiceDetailsDto Object
+(
+    [container:protected] => Array
+        (
+            [ifu] => 3201710143718
+            [aib] => 
+            [type] => FV
+            [items] => Array
+                (
+                    [0] => Swagger\Client\Model\ItemDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [code] => 
+                                    [name] => Clav
+                                    [price] => 2504196
+                                    [quantity] => 1
+                                    [tax_group] => B
+                                    [tax_specific] => 
+                                    [original_price] => 
+                                    [price_modification] => 
+                                )
+
+                        )
+
+                )
+
+            [client] => Swagger\Client\Model\ClientDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [ifu] => 3234567890987
+                            [name] => JAMES LE BRON
+                            [contact] => 61539729,pichichisolo@gmail.com
+                            [address] => PKota,  Calavi
+                        )
+
+                )
+
+            [operator] => Swagger\Client\Model\OperatorDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [id] => 
+                            [name] =>  SuperAdmin
+                        )
+
+                )
+
+            [payment] => Array
+                (
+                    [0] => Swagger\Client\Model\PaymentDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [name] => ESPECES
+                                    [amount] => 2504196
+                                )
+
+                        )
+
+                )
+
+            [reference] => 
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Confirm :
+Swagger\Client\Model\SecurityElementsDto Object
+(
+    [container:protected] => Array
+        (
+            [date_time] => 21/05/2025 09:47:56
+            [qr_code] => F;TS01000333;TESTNKWHAIHPMS3WCABDHRQ3;3201710143718;20250521094756
+            [code_me_ce_fdgi] => TEST-NKWH-AIHP-MS3W-CABD-HRQ3
+            [counters] => 231/234 FV
+            [nim] => TS01000333
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Données reçues :
+Array
+(
+)
+
+Données normalisées :
+Array
+(
+    [dateTime] => 
+    [qrCode] => 
+    [codeMECeFDGI] => 
+    [counters] => 
+    [nim] => 
+)
+
+Options actuelles :
+Array
+(
+    [options_normalized_data] => {"dateTime":"","qrCode":"","codeMECeFDGI":"","counters":"","nim":""}
+    [options_qr_code] => 
+    [options_nim] => 
+    [options_counters] => 
+    [options_date_time] => 
+    [options_code_mecef_dgi] => 
+    [options_mecf_jwt_token] => 
+)
+
+Options après mise à jour :
+Array
+(
+    [options_normalized_data] => {"dateTime":"","qrCode":"","codeMECeFDGI":"","counters":"","nim":""}
+    [options_qr_code] => 
+    [options_nim] => 
+    [options_counters] => 
+    [options_date_time] => 
+    [options_code_mecef_dgi] => 
+    [options_mecf_jwt_token] => 
+    [options_is_normalized] => 1
+    [options_normalize_date] => 1747817275
+)
+
+Réponse API Invoice Post :
+Swagger\Client\Model\InvoiceResponseDto Object
+(
+    [container:protected] => Array
+        (
+            [uid] => b0eb09dd-e052-4ddc-9889-032db61dbdce
+            [ta] => 0
+            [tb] => 18
+            [tc] => 0
+            [td] => 18
+            [taa] => 0
+            [tab] => 2504196
+            [tac] => 0
+            [tad] => 0
+            [tae] => 0
+            [taf] => 0
+            [hab] => 2122200
+            [had] => 0
+            [vab] => 381996
+            [vad] => 0
+            [aib] => 0
+            [ts] => 0
+            [total] => 2504196
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Get :
+Swagger\Client\Model\InvoiceDetailsDto Object
+(
+    [container:protected] => Array
+        (
+            [ifu] => 3201710143718
+            [aib] => 
+            [type] => FV
+            [items] => Array
+                (
+                    [0] => Swagger\Client\Model\ItemDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [code] => 
+                                    [name] => Clav
+                                    [price] => 2504196
+                                    [quantity] => 1
+                                    [tax_group] => B
+                                    [tax_specific] => 
+                                    [original_price] => 
+                                    [price_modification] => 
+                                )
+
+                        )
+
+                )
+
+            [client] => Swagger\Client\Model\ClientDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [ifu] => 3234567890987
+                            [name] => JAMES LE BRON
+                            [contact] => 61539729,pichichisolo@gmail.com
+                            [address] => PKota,  Calavi
+                        )
+
+                )
+
+            [operator] => Swagger\Client\Model\OperatorDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [id] => 
+                            [name] =>  SuperAdmin
+                        )
+
+                )
+
+            [payment] => Array
+                (
+                    [0] => Swagger\Client\Model\PaymentDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [name] => ESPECES
+                                    [amount] => 2504196
+                                )
+
+                        )
+
+                )
+
+            [reference] => 
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Confirm :
+Swagger\Client\Model\SecurityElementsDto Object
+(
+    [container:protected] => Array
+        (
+            [date_time] => 21/05/2025 09:49:24
+            [qr_code] => F;TS01000333;TESTMOBV5YINHQEIRZHDL4VQ;3201710143718;20250521094924
+            [code_me_ce_fdgi] => TEST-MOBV-5YIN-HQEI-RZHD-L4VQ
+            [counters] => 232/235 FV
+            [nim] => TS01000333
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Données reçues :
+Array
+(
+    [date_time] => 21/05/2025 09:49:24
+    [qr_code] => F;TS01000333;TESTMOBV5YINHQEIRZHDL4VQ;3201710143718;20250521094924
+    [code_me_ce_fdgi] => TEST-MOBV-5YIN-HQEI-RZHD-L4VQ
+    [counters] => 232/235 FV
+    [nim] => TS01000333
+)
+
+Données normalisées :
+Array
+(
+    [dateTime] => 21/05/2025 09:49:24
+    [qrCode] => F;TS01000333;TESTMOBV5YINHQEIRZHDL4VQ;3201710143718;20250521094924
+    [codeMECeFDGI] => TEST-MOBV-5YIN-HQEI-RZHD-L4VQ
+    [counters] => 232/235 FV
+    [nim] => TS01000333
+)
+
+Options actuelles :
+Array
+(
+    [options_normalized_data] => {"dateTime":"","qrCode":"","codeMECeFDGI":"","counters":"","nim":""}
+    [options_qr_code] => 
+    [options_nim] => 
+    [options_counters] => 
+    [options_date_time] => 
+    [options_code_mecef_dgi] => 
+    [options_mecf_jwt_token] => 
+)
+
+Options après mise à jour :
+Array
+(
+    [options_normalized_data] => {"dateTime":"21\/05\/2025 09:49:24","qrCode":"F;TS01000333;TESTMOBV5YINHQEIRZHDL4VQ;3201710143718;20250521094924","codeMECeFDGI":"TEST-MOBV-5YIN-HQEI-RZHD-L4VQ","counters":"232\/235 FV","nim":"TS01000333"}
+    [options_qr_code] => F;TS01000333;TESTMOBV5YINHQEIRZHDL4VQ;3201710143718;20250521094924
+    [options_nim] => TS01000333
+    [options_counters] => 232/235 FV
+    [options_date_time] => 21/05/2025 09:49:24
+    [options_code_mecef_dgi] => TEST-MOBV-5YIN-HQEI-RZHD-L4VQ
+    [options_mecf_jwt_token] => 
+    [options_is_normalized] => 1
+    [options_normalize_date] => 1747817363
+)
+
+Réponse API Invoice Post :
+Swagger\Client\Model\InvoiceResponseDto Object
+(
+    [container:protected] => Array
+        (
+            [uid] => af55e262-d455-4bc9-adc5-799086551421
+            [ta] => 0
+            [tb] => 18
+            [tc] => 0
+            [td] => 18
+            [taa] => 0
+            [tab] => 2504196
+            [tac] => 0
+            [tad] => 0
+            [tae] => 0
+            [taf] => 0
+            [hab] => 2122200
+            [had] => 0
+            [vab] => 381996
+            [vad] => 0
+            [aib] => 0
+            [ts] => 0
+            [total] => 2504196
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Get :
+Swagger\Client\Model\InvoiceDetailsDto Object
+(
+    [container:protected] => Array
+        (
+            [ifu] => 3201710143718
+            [aib] => 
+            [type] => FV
+            [items] => Array
+                (
+                    [0] => Swagger\Client\Model\ItemDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [code] => 
+                                    [name] => Clav
+                                    [price] => 2504196
+                                    [quantity] => 1
+                                    [tax_group] => B
+                                    [tax_specific] => 
+                                    [original_price] => 
+                                    [price_modification] => 
+                                )
+
+                        )
+
+                )
+
+            [client] => Swagger\Client\Model\ClientDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [ifu] => 3234567890987
+                            [name] => JAMES LE BRON
+                            [contact] => 61539729,pichichisolo@gmail.com
+                            [address] => PKota,  Calavi
+                        )
+
+                )
+
+            [operator] => Swagger\Client\Model\OperatorDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [id] => 
+                            [name] =>  SuperAdmin
+                        )
+
+                )
+
+            [payment] => Array
+                (
+                    [0] => Swagger\Client\Model\PaymentDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [name] => ESPECES
+                                    [amount] => 2504196
+                                )
+
+                        )
+
+                )
+
+            [reference] => 
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Confirm :
+Swagger\Client\Model\SecurityElementsDto Object
+(
+    [container:protected] => Array
+        (
+            [date_time] => 21/05/2025 09:49:32
+            [qr_code] => F;TS01000333;TESTPBGXEQMEZWKAR3RJJCY7;3201710143718;20250521094932
+            [code_me_ce_fdgi] => TEST-PBGX-EQME-ZWKA-R3RJ-JCY7
+            [counters] => 233/236 FV
+            [nim] => TS01000333
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Données reçues :
+Array
+(
+    [date_time] => 21/05/2025 09:49:32
+    [qr_code] => F;TS01000333;TESTPBGXEQMEZWKAR3RJJCY7;3201710143718;20250521094932
+    [code_me_ce_fdgi] => TEST-PBGX-EQME-ZWKA-R3RJ-JCY7
+    [counters] => 233/236 FV
+    [nim] => TS01000333
+)
+
+Données normalisées :
+Array
+(
+    [dateTime] => 21/05/2025 09:49:32
+    [qrCode] => F;TS01000333;TESTPBGXEQMEZWKAR3RJJCY7;3201710143718;20250521094932
+    [codeMECeFDGI] => TEST-PBGX-EQME-ZWKA-R3RJ-JCY7
+    [counters] => 233/236 FV
+    [nim] => TS01000333
+)
+
+Options actuelles :
+Array
+(
+    [options_normalized_data] => {"dateTime":"","qrCode":"","codeMECeFDGI":"","counters":"","nim":""}
+    [options_qr_code] => 
+    [options_nim] => 
+    [options_counters] => 
+    [options_date_time] => 
+    [options_code_mecef_dgi] => 
+    [options_mecf_jwt_token] => 
+)
+
+Options après mise à jour :
+Array
+(
+    [options_normalized_data] => {"dateTime":"21\/05\/2025 09:49:32","qrCode":"F;TS01000333;TESTPBGXEQMEZWKAR3RJJCY7;3201710143718;20250521094932","codeMECeFDGI":"TEST-PBGX-EQME-ZWKA-R3RJ-JCY7","counters":"233\/236 FV","nim":"TS01000333"}
+    [options_qr_code] => F;TS01000333;TESTPBGXEQMEZWKAR3RJJCY7;3201710143718;20250521094932
+    [options_nim] => TS01000333
+    [options_counters] => 233/236 FV
+    [options_date_time] => 21/05/2025 09:49:32
+    [options_code_mecef_dgi] => TEST-PBGX-EQME-ZWKA-R3RJ-JCY7
+    [options_mecf_jwt_token] => 
+    [options_is_normalized] => 1
+    [options_normalize_date] => 1747817371
+)
+
+Réponse API Invoice Post :
+Swagger\Client\Model\InvoiceResponseDto Object
+(
+    [container:protected] => Array
+        (
+            [uid] => b9214ea6-11f1-43b0-80a2-545896257212
+            [ta] => 0
+            [tb] => 18
+            [tc] => 0
+            [td] => 18
+            [taa] => 0
+            [tab] => 2504196
+            [tac] => 0
+            [tad] => 0
+            [tae] => 0
+            [taf] => 0
+            [hab] => 2122200
+            [had] => 0
+            [vab] => 381996
+            [vad] => 0
+            [aib] => 0
+            [ts] => 0
+            [total] => 2504196
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Get :
+Swagger\Client\Model\InvoiceDetailsDto Object
+(
+    [container:protected] => Array
+        (
+            [ifu] => 3201710143718
+            [aib] => 
+            [type] => FV
+            [items] => Array
+                (
+                    [0] => Swagger\Client\Model\ItemDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [code] => 
+                                    [name] => Clav
+                                    [price] => 2504196
+                                    [quantity] => 1
+                                    [tax_group] => B
+                                    [tax_specific] => 
+                                    [original_price] => 
+                                    [price_modification] => 
+                                )
+
+                        )
+
+                )
+
+            [client] => Swagger\Client\Model\ClientDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [ifu] => 3234567890987
+                            [name] => JAMES LE BRON
+                            [contact] => 61539729,pichichisolo@gmail.com
+                            [address] => PKota,  Calavi
+                        )
+
+                )
+
+            [operator] => Swagger\Client\Model\OperatorDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [id] => 
+                            [name] =>  SuperAdmin
+                        )
+
+                )
+
+            [payment] => Array
+                (
+                    [0] => Swagger\Client\Model\PaymentDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [name] => ESPECES
+                                    [amount] => 2504196
+                                )
+
+                        )
+
+                )
+
+            [reference] => 
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Confirm :
+Swagger\Client\Model\SecurityElementsDto Object
+(
+    [container:protected] => Array
+        (
+            [date_time] => 21/05/2025 09:54:49
+            [qr_code] => F;TS01000333;TESTWPMWNRM5625I7N6IMRJD;3201710143718;20250521095449
+            [code_me_ce_fdgi] => TEST-WPMW-NRM5-625I-7N6I-MRJD
+            [counters] => 234/237 FV
+            [nim] => TS01000333
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Données reçues :
+Array
+(
+    [date_time] => 21/05/2025 09:54:49
+    [qr_code] => F;TS01000333;TESTWPMWNRM5625I7N6IMRJD;3201710143718;20250521095449
+    [code_me_ce_fdgi] => TEST-WPMW-NRM5-625I-7N6I-MRJD
+    [counters] => 234/237 FV
+    [nim] => TS01000333
+)
+
+Données normalisées :
+Array
+(
+    [dateTime] => 21/05/2025 09:54:49
+    [qrCode] => F;TS01000333;TESTWPMWNRM5625I7N6IMRJD;3201710143718;20250521095449
+    [codeMECeFDGI] => TEST-WPMW-NRM5-625I-7N6I-MRJD
+    [counters] => 234/237 FV
+    [nim] => TS01000333
+)
+
+Options actuelles :
+Array
+(
+    [options_normalized_data] => {"dateTime":"","qrCode":"","codeMECeFDGI":"","counters":"","nim":""}
+    [options_qr_code] => 
+    [options_nim] => 
+    [options_counters] => 
+    [options_date_time] => 
+    [options_code_mecef_dgi] => 
+    [options_mecf_jwt_token] => 
+)
+
+Options après mise à jour :
+Array
+(
+    [options_normalized_data] => {"dateTime":"21\/05\/2025 09:54:49","qrCode":"F;TS01000333;TESTWPMWNRM5625I7N6IMRJD;3201710143718;20250521095449","codeMECeFDGI":"TEST-WPMW-NRM5-625I-7N6I-MRJD","counters":"234\/237 FV","nim":"TS01000333"}
+    [options_qr_code] => F;TS01000333;TESTWPMWNRM5625I7N6IMRJD;3201710143718;20250521095449
+    [options_nim] => TS01000333
+    [options_counters] => 234/237 FV
+    [options_date_time] => 21/05/2025 09:54:49
+    [options_code_mecef_dgi] => TEST-WPMW-NRM5-625I-7N6I-MRJD
+    [options_mecf_jwt_token] => 
+    [options_is_normalized] => 1
+    [options_normalize_date] => 1747817688
+)
+
+Réponse API Invoice Post :
+Swagger\Client\Model\InvoiceResponseDto Object
+(
+    [container:protected] => Array
+        (
+            [uid] => 935bf21c-c342-4e4e-8f16-4b018e92bb3a
+            [ta] => 0
+            [tb] => 18
+            [tc] => 0
+            [td] => 18
+            [taa] => 0
+            [tab] => 2504196
+            [tac] => 0
+            [tad] => 0
+            [tae] => 0
+            [taf] => 0
+            [hab] => 2122200
+            [had] => 0
+            [vab] => 381996
+            [vad] => 0
+            [aib] => 0
+            [ts] => 0
+            [total] => 2504196
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Get :
+Swagger\Client\Model\InvoiceDetailsDto Object
+(
+    [container:protected] => Array
+        (
+            [ifu] => 3201710143718
+            [aib] => 
+            [type] => FV
+            [items] => Array
+                (
+                    [0] => Swagger\Client\Model\ItemDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [code] => 
+                                    [name] => Clav
+                                    [price] => 2504196
+                                    [quantity] => 1
+                                    [tax_group] => B
+                                    [tax_specific] => 
+                                    [original_price] => 
+                                    [price_modification] => 
+                                )
+
+                        )
+
+                )
+
+            [client] => Swagger\Client\Model\ClientDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [ifu] => 3234567890987
+                            [name] => JAMES LE BRON
+                            [contact] => 61539729,pichichisolo@gmail.com
+                            [address] => PKota,  Calavi
+                        )
+
+                )
+
+            [operator] => Swagger\Client\Model\OperatorDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [id] => 
+                            [name] =>  SuperAdmin
+                        )
+
+                )
+
+            [payment] => Array
+                (
+                    [0] => Swagger\Client\Model\PaymentDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [name] => ESPECES
+                                    [amount] => 2504196
+                                )
+
+                        )
+
+                )
+
+            [reference] => 
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Confirm :
+Swagger\Client\Model\SecurityElementsDto Object
+(
+    [container:protected] => Array
+        (
+            [date_time] => 21/05/2025 09:55:44
+            [qr_code] => F;TS01000333;TESTKGYDOAXH6JTWBDEBVQZR;3201710143718;20250521095544
+            [code_me_ce_fdgi] => TEST-KGYD-OAXH-6JTW-BDEB-VQZR
+            [counters] => 235/238 FV
+            [nim] => TS01000333
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Données reçues :
+Array
+(
+    [date_time] => 21/05/2025 09:55:44
+    [qr_code] => F;TS01000333;TESTKGYDOAXH6JTWBDEBVQZR;3201710143718;20250521095544
+    [code_me_ce_fdgi] => TEST-KGYD-OAXH-6JTW-BDEB-VQZR
+    [counters] => 235/238 FV
+    [nim] => TS01000333
+)
+
+Données normalisées :
+Array
+(
+    [dateTime] => 21/05/2025 09:55:44
+    [qrCode] => F;TS01000333;TESTKGYDOAXH6JTWBDEBVQZR;3201710143718;20250521095544
+    [codeMECeFDGI] => TEST-KGYD-OAXH-6JTW-BDEB-VQZR
+    [counters] => 235/238 FV
+    [nim] => TS01000333
+)
+
+Options actuelles :
+Array
+(
+    [options_normalized_data] => {"dateTime":"","qrCode":"","codeMECeFDGI":"","counters":"","nim":""}
+    [options_qr_code] => 
+    [options_nim] => 
+    [options_counters] => 
+    [options_date_time] => 
+    [options_code_mecef_dgi] => 
+    [options_mecf_jwt_token] => 
+)
+
+Options après mise à jour :
+Array
+(
+    [options_normalized_data] => {"dateTime":"21\/05\/2025 09:55:44","qrCode":"F;TS01000333;TESTKGYDOAXH6JTWBDEBVQZR;3201710143718;20250521095544","codeMECeFDGI":"TEST-KGYD-OAXH-6JTW-BDEB-VQZR","counters":"235\/238 FV","nim":"TS01000333"}
+    [options_qr_code] => F;TS01000333;TESTKGYDOAXH6JTWBDEBVQZR;3201710143718;20250521095544
+    [options_nim] => TS01000333
+    [options_counters] => 235/238 FV
+    [options_date_time] => 21/05/2025 09:55:44
+    [options_code_mecef_dgi] => TEST-KGYD-OAXH-6JTW-BDEB-VQZR
+    [options_mecf_jwt_token] => 
+    [options_is_normalized] => 1
+    [options_normalize_date] => 1747817743
+)
+
+Réponse API Invoice Post :
+Swagger\Client\Model\InvoiceResponseDto Object
+(
+    [container:protected] => Array
+        (
+            [uid] => 3a448054-88f1-4d08-b2e5-2f98d5271df5
+            [ta] => 0
+            [tb] => 18
+            [tc] => 0
+            [td] => 18
+            [taa] => 0
+            [tab] => 2504196
+            [tac] => 0
+            [tad] => 0
+            [tae] => 0
+            [taf] => 0
+            [hab] => 2122200
+            [had] => 0
+            [vab] => 381996
+            [vad] => 0
+            [aib] => 0
+            [ts] => 0
+            [total] => 2504196
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Get :
+Swagger\Client\Model\InvoiceDetailsDto Object
+(
+    [container:protected] => Array
+        (
+            [ifu] => 3201710143718
+            [aib] => 
+            [type] => FV
+            [items] => Array
+                (
+                    [0] => Swagger\Client\Model\ItemDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [code] => 
+                                    [name] => Clav
+                                    [price] => 2504196
+                                    [quantity] => 1
+                                    [tax_group] => B
+                                    [tax_specific] => 
+                                    [original_price] => 
+                                    [price_modification] => 
+                                )
+
+                        )
+
+                )
+
+            [client] => Swagger\Client\Model\ClientDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [ifu] => 3234567890987
+                            [name] => JAMES LE BRON
+                            [contact] => 61539729,pichichisolo@gmail.com
+                            [address] => PKota,  Calavi
+                        )
+
+                )
+
+            [operator] => Swagger\Client\Model\OperatorDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [id] => 
+                            [name] =>  SuperAdmin
+                        )
+
+                )
+
+            [payment] => Array
+                (
+                    [0] => Swagger\Client\Model\PaymentDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [name] => ESPECES
+                                    [amount] => 2504196
+                                )
+
+                        )
+
+                )
+
+            [reference] => 
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Confirm :
+Swagger\Client\Model\SecurityElementsDto Object
+(
+    [container:protected] => Array
+        (
+            [date_time] => 21/05/2025 09:55:53
+            [qr_code] => F;TS01000333;TEST7SFTS2U6FZTBHBIYOO3W;3201710143718;20250521095553
+            [code_me_ce_fdgi] => TEST-7SFT-S2U6-FZTB-HBIY-OO3W
+            [counters] => 236/239 FV
+            [nim] => TS01000333
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Données reçues :
+Array
+(
+    [date_time] => 21/05/2025 09:55:53
+    [qr_code] => F;TS01000333;TEST7SFTS2U6FZTBHBIYOO3W;3201710143718;20250521095553
+    [code_me_ce_fdgi] => TEST-7SFT-S2U6-FZTB-HBIY-OO3W
+    [counters] => 236/239 FV
+    [nim] => TS01000333
+)
+
+Données normalisées :
+Array
+(
+    [dateTime] => 21/05/2025 09:55:53
+    [qrCode] => F;TS01000333;TEST7SFTS2U6FZTBHBIYOO3W;3201710143718;20250521095553
+    [codeMECeFDGI] => TEST-7SFT-S2U6-FZTB-HBIY-OO3W
+    [counters] => 236/239 FV
+    [nim] => TS01000333
+)
+
+Options actuelles :
+Array
+(
+    [options_normalized_data] => {"dateTime":"","qrCode":"","codeMECeFDGI":"","counters":"","nim":""}
+    [options_qr_code] => 
+    [options_nim] => 
+    [options_counters] => 
+    [options_date_time] => 
+    [options_code_mecef_dgi] => 
+    [options_mecf_jwt_token] => 
+)
+
+Options après mise à jour :
+Array
+(
+    [options_normalized_data] => {"dateTime":"21\/05\/2025 09:55:53","qrCode":"F;TS01000333;TEST7SFTS2U6FZTBHBIYOO3W;3201710143718;20250521095553","codeMECeFDGI":"TEST-7SFT-S2U6-FZTB-HBIY-OO3W","counters":"236\/239 FV","nim":"TS01000333"}
+    [options_qr_code] => F;TS01000333;TEST7SFTS2U6FZTBHBIYOO3W;3201710143718;20250521095553
+    [options_nim] => TS01000333
+    [options_counters] => 236/239 FV
+    [options_date_time] => 21/05/2025 09:55:53
+    [options_code_mecef_dgi] => TEST-7SFT-S2U6-FZTB-HBIY-OO3W
+    [options_mecf_jwt_token] => 
+    [options_is_normalized] => 1
+    [options_normalize_date] => 1747817752
+)
+

@@ -1,0 +1,25 @@
+Erreur lors de la mise à jour des données :
+
+SQL : 
+Erreur lors de la mise à jour des données :
+
+SQL : 
+Erreur lors de la mise à jour des données :
+
+SQL : 
+Erreur lors de la mise à jour des données :
+
+SQL : 
+Erreur lors de la mise à jour des données :
+
+SQL : 
+Erreur lors de la mise à jour des données :
+
+SQL : 
+Erreur SQL directe : Unknown column 'options_normalized_data' in 'field list'
+Erreur lors de la mise à jour des données :
+
+SQL : 
+Erreur lors de la mise à jour des données :
+
+SQL : 
