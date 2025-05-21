@@ -150,6 +150,57 @@ if ($decryption == "FACTURE@TDSSTORE@DGI") {
                         'counters' => $securityElementsDto->getCounters(),
                         'nim' => $securityElementsDto->getNim()
                     ];
+
+                    // Génération de l'URL du QR code avec les paramètres recommandés
+                    $qr_code_data = urlencode($data['qr_code']);
+                    $qr_code_url = 'https://api.qrserver.com/v1/create-qr-code/';
+                    $qr_code_url .= '?data=' . $qr_code_data;
+                    $qr_code_url .= '&size=100x100';  // Taille optimale pour les téléphones
+                    $qr_code_url .= '&format=png';    // Format PNG pour une meilleure qualité
+                    $qr_code_url .= '&charset-source=UTF-8'; // Gestion des caractères spéciaux
+                    $qr_code_url .= '&margin=1';      // Marge minimale
+                    $qr_code_url .= '&qzone=4';       // Zone de silence
+                    $qr_code_url .= '&ecc=M';         // Correction d'erreur moyenne
+
+                    // Mise à jour des données avec l'URL du QR code
+                    $data['qr_code'] = $qr_code_url;
+                    
+                    // --- Début Ajout téléchargement et sauvegarde locale du QR code ---
+                    $qr_temp_dir = __DIR__ . '/temp_qr'; // Répertoire temporaire pour les images QR
+                    
+                    // Créer le répertoire si nécessaire
+                    if (!is_dir($qr_temp_dir)) {
+                        mkdir($qr_temp_dir, 0777, true);
+                    }
+                    
+                    $qr_filename = 'qr_invoice_' . $invoice->id . '_' . uniqid() . '.png';
+                    $qr_filepath = $qr_temp_dir . '/' . $qr_filename;
+                    
+                    // Télécharger l'image depuis l'URL
+                    $image_data = @file_get_contents($qr_code_url); // Utilisation de @ pour éviter les warnings si l'URL est inaccessible
+                    
+                    if ($image_data !== false) {
+                        // Sauvegarder l'image localement
+                        if (file_put_contents($qr_filepath, $image_data) !== false) {
+                            // Sauvegarder le chemin relatif au DOL_DOCUMENT_ROOT dans l'extrafield
+                            $relative_qr_filepath = str_replace(DOL_DOCUMENT_ROOT, '', $qr_filepath);
+                            // Assurer que le chemin commence par un slash si nécessaire
+                            if (substr($relative_qr_filepath, 0, 1) !== '/') {
+                                $relative_qr_filepath = '/' . $relative_qr_filepath;
+                            }
+                            $data['qr_code'] = $relative_qr_filepath;
+                            file_put_contents(__DIR__.'/debug_mecef_data.txt', "QR code image saved locally: ". $qr_filepath ."\n", FILE_APPEND);
+                        } else {
+                            file_put_contents(__DIR__.'/debug_mecef_error.txt', "Erreur lors de la sauvegarde de l'image QR localement: ". $qr_filepath ."\n", FILE_APPEND);
+                            // Conserver l'URL si la sauvegarde locale échoue
+                            $data['qr_code'] = $qr_code_url;
+                        }
+                    } else {
+                         file_put_contents(__DIR__.'/debug_mecef_error.txt', "Erreur lors du téléchargement de l'image QR depuis l'URL: ". $qr_code_url ."\n", FILE_APPEND);
+                        // Conserver l'URL si le téléchargement échoue
+                         $data['qr_code'] = $qr_code_url;
+                    }
+                    // --- Fin Ajout téléchargement et sauvegarde locale du QR code ---
                     
                     $normalized_data = [
                         'dateTime'      => $data['date_time'],
@@ -209,7 +260,7 @@ if ($decryption == "FACTURE@TDSSTORE@DGI") {
                     if ($result < 0) {
                         file_put_contents(__DIR__.'/debug_mecef_error.txt', "Erreur lors de la mise à jour des données :\n".$invoice->error."\n", FILE_APPEND);
                         file_put_contents(__DIR__.'/debug_mecef_error.txt', "SQL : ".$invoice->lastquery."\n", FILE_APPEND);
-                        
+
                         // Tentative de mise à jour directe
                         $sql = "UPDATE ".MAIN_DB_PREFIX."facture_extrafields SET";
                         $sql .= " options_normalized_data = '".$db->escape(json_encode($normalized_data))."'";
@@ -221,7 +272,7 @@ if ($decryption == "FACTURE@TDSSTORE@DGI") {
                         $sql .= ", options_counters = '".$db->escape($data['counters'])."'";
                         $sql .= ", options_date_time = '".$db->escape($data['date_time'])."'";
                         $sql .= " WHERE fk_object = ".$invoice->id;
-                        
+
                         $resql = $db->query($sql);
                         if (!$resql) {
                             file_put_contents(__DIR__.'/debug_mecef_error.txt', "Erreur SQL directe : ".$db->lasterror()."\n", FILE_APPEND);
@@ -229,12 +280,45 @@ if ($decryption == "FACTURE@TDSSTORE@DGI") {
                         }
                     }
 
-                    $note = "Facture normalisée e-MECeF le " . dol_print_date(dol_now(), 'dayhourtext') . "\n";
-                    $note .= "Code MECeF/DGI: " . ($data['code_me_ce_fdgi'] ?? '') . "\n";
-                    $note .= "NIM: " . ($data['nim'] ?? '') . "\n";
-                    $note .= "Compteurs: " . ($data['counters'] ?? '') . "\n";
-                    $note .= "QR Code: " . ($data['qr_code'] ?? '');
-                    $result = $invoice->update_note($note, '_public');
+                    // Masquer les extrafields de normalisation après la normalisation réussie
+                    $sql = "UPDATE ".MAIN_DB_PREFIX."extrafields SET visible = 0";
+                    $sql .= " WHERE name IN ('options_normalized_data', 'options_is_normalized', 'options_normalize_date', 'options_code_mecef_dgi', 'options_nim', 'options_qr_code', 'options_counters', 'options_date_time')";
+                    $sql .= " AND entity = ".$conf->entity;
+                    $db->query($sql);
+
+                    // --- Début Construction Note Publique HTML ---
+                    $note_html = '<table width="100%" border="0" cellpadding="2" cellspacing="0">';
+                    $note_html .= '<tr>';
+                    // Cellule pour les informations textuelles
+                    $note_html .= '<td style="width: 70%; font-size: 9px;">'; // Ajustez la taille de la police si nécessaire
+                    $note_html .= '<b>Facture normalisée e-MECeF le ' . dol_print_date(dol_now(), 'dayhourtext') . '</b><br>';
+                    $note_html .= '<b>Code MECeF/DGI :</b> ' . ($data['code_me_ce_fdgi'] ?? '') . '<br>';
+                    $note_html .= '<b>NIM :</b> ' . ($data['nim'] ?? '') . '<br>';
+                    $note_html .= '<b>Compteurs :</b> ' . ($data['counters'] ?? '');
+                    $note_html .= '</td>';
+
+                    // Cellule pour l'image du QR code
+                    $note_html .= '<td style="width: 30%; text-align: right;">'; // Alignez l'image à droite
+                    // Utiliser le chemin local si sauvegardé, sinon l'URL distante
+                    $qr_code_src = !empty($qr_filepath) && file_exists($qr_filepath) ? str_replace(DOL_DOCUMENT_ROOT, '', $qr_filepath) : $qr_code_url;
+
+                    if (!empty($qr_code_src)) {
+                         // Assurer que le chemin local commence par un slash si nécessaire
+                         // Check if not URL and not Windows absolute path (starts with DriveLetter:)
+                         if (!filter_var($qr_code_src, FILTER_VALIDATE_URL) && substr($qr_code_src, 0, 1) !== '/' && !(strlen($qr_code_src) > 1 && ctype_alpha(substr($qr_code_src, 0, 1)) && substr($qr_code_src, 1, 1) === ':')) {
+                             $qr_code_src = '/' . $qr_code_src;
+                         }
+                        // Balise <img> pour afficher l'image du QR code
+                        $note_html .= "<img src=\"" . $qr_code_src . "\" alt=\"QR Code\" title=\"QR Code\" style=\"width:100px;height:100px;\">"; // Ajustez la taille si nécessaire
+                    }
+                    $note_html .= '</td>';
+
+                    $note_html .= '</tr>';
+                    $note_html .= '</table>';
+                    // --- Fin Construction Note Publique HTML ---
+
+                    // Mettre à jour la note publique avec le contenu HTML
+                    $result = $invoice->update_note($note_html, '_public');
                     if ($result < 0) {
                         die('Erreur lors de la mise à jour de la note : ' . $invoice->error);
                     }

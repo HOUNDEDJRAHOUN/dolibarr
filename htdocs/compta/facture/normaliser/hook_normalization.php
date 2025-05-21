@@ -29,7 +29,7 @@ if (isset($object) && is_object($object) && method_exists($object, 'getLibStatut
     }
 
     // Vérifier si la facture est validée et pas encore normalisée
-    if ($object->statut == Facture::STATUS_VALIDATED && empty($object->array_options['options_code_mecef_dgi'])) {
+    if ($object->statut == Facture::STATUS_VALIDATED && empty($object->array_options['options_normalized_data'])) {
         error_log("Facture validée et non normalisée");
         // Vérifier si le pays du client est Bénin
         if ($object->thirdparty && $object->thirdparty->country_code == 'BJ') {
@@ -55,7 +55,7 @@ if (isset($object) && is_object($object) && method_exists($object, 'getLibStatut
         } else {
             error_log("Client n'est pas du Bénin");
         }
-    } else if (!empty($object->array_options['options_code_mecef_dgi'])) {
+    } else if (!empty($object->array_options['options_normalized_data'])) {
         // Afficher les informations de normalisation
         echo "<div class='tabsAction' style='margin:20px 0;'>";
         echo "<span class='butActionRefused classfortooltip' title='Facture déjà normalisée'>Déjà normalisée DGI</span>";
@@ -85,13 +85,6 @@ if (isset($object) && is_object($object) && method_exists($object, 'getLibStatut
         echo "<td>" . $object->array_options['options_counters'] . "</td>";
         echo "</tr>";
         echo "</table>";
-        
-        // Afficher le QR code si disponible
-        if (!empty($object->array_options['options_qr_code'])) {
-            echo "<div style='margin-top:10px;'>";
-            echo "<img src='https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=" . urlencode($object->array_options['options_qr_code']) . "' alt='QR Code e-MECeF' />";
-            echo "</div>";
-        }
         
         echo "</div>";
         echo "</div>";

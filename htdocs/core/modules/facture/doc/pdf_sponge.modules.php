@@ -906,6 +906,11 @@ class pdf_sponge extends ModelePDFFactures
 					// Extrafields
 					if (!empty($object->lines[$i]->array_options)) {
 						foreach ($object->lines[$i]->array_options as $extrafieldColKey => $extrafieldValue) {
+							// Skip options_qr_code as it is handled separately in the e-MECeF block
+							if ($extrafieldColKey === 'options_qr_code' || $extrafieldColKey === 'options_normalized_data' || $extrafieldColKey === 'options_is_normalized' || $extrafieldColKey === 'options_normalize_date' || $extrafieldColKey === 'options_code_mecef_dgi' || $extrafieldColKey === 'options_nim' || $extrafieldColKey === 'options_counters') {
+								continue;
+							}
+
 							if ($this->getColumnStatus($extrafieldColKey)) {
 								$extrafieldValue = $this->getExtrafieldContent($object->lines[$i], $extrafieldColKey, $outputlangs);
 								$this->printStdColumnContent($pdf, $curY, $extrafieldColKey, $extrafieldValue);
@@ -1142,34 +1147,45 @@ class pdf_sponge extends ModelePDFFactures
 				}
 
 				// --- Affichage e-MECeF (DGI) ---
-				if (!empty($object->array_options['options_normalized_data'])) {
-					$mecef = json_decode($object->array_options['options_normalized_data'], true);
-					if ($mecef) {
-						$pdf->SetFont('', 'B', 10);
-						$pdf->SetTextColor(0, 0, 0);
-						$y = $this->page_hauteur - $this->heightforfooter - 40; // Place en bas de page
-						$x = $this->marge_gauche + 2;
+				// Vérifier si la facture est normalisée et si l'extrafield options_qr_code existe et n'est pas vide
+				if (!empty($object->array_options['options_is_normalized']) && !empty($object->array_options['options_qr_code'])) {
+					$pdf->SetFont('', 'B', 10);
+					$pdf->SetTextColor(0, 0, 0);
+					$y = $this->page_hauteur - $this->heightforfooter - 40; // Position en bas de page
+					$x = $this->marge_gauche + 2;
 
-						$pdf->SetXY($x, $y);
-						$pdf->MultiCell(80, 6, "e-MECeF (DGI) :", 0, 'L', false);
+					$pdf->SetXY($x, $y);
+					$pdf->MultiCell(80, 6, "e-MECeF (DGI) :", 0, 'L', false);
 
-						$pdf->SetFont('', '', 9);
-						$y += 6;
-						$pdf->SetXY($x, $y);
-						$pdf->MultiCell(80, 5, "Code MECeF : " . ($mecef['codeMECeFDGI'] ?? ''), 0, 'L', false);
-						$y += 5;
-						$pdf->SetXY($x, $y);
-						$pdf->MultiCell(80, 5, "NIM : " . ($mecef['nim'] ?? ''), 0, 'L', false);
-						$y += 5;
-						$pdf->SetXY($x, $y);
-						$pdf->MultiCell(80, 5, "Date/Heure : " . ($mecef['dateTime'] ?? ''), 0, 'L', false);
-						$y += 5;
-						$pdf->SetXY($x, $y);
-						$pdf->MultiCell(80, 5, "Compteurs : " . ($mecef['counters'] ?? ''), 0, 'L', false);
+					$pdf->SetFont('', '', 9);
+					$y += 6;
+					$pdf->SetXY($x, $y);
+					$pdf->MultiCell(80, 5, "Code MECeF : " . ($object->array_options['options_code_mecef_dgi'] ?? ''), 0, 'L', false);
+					$y += 5;
+					$pdf->SetXY($x, $y);
+					$pdf->MultiCell(80, 5, "NIM : " . ($object->array_options['options_nim'] ?? ''), 0, 'L', false);
+					$y += 5;
+					$pdf->SetXY($x, $y);
+					$pdf->MultiCell(80, 5, "Compteurs : " . ($object->array_options['options_counters'] ?? ''), 0, 'L', false);
 
-						// QR code
-						if (!empty($mecef['qrCode']) && method_exists($pdf, 'write2DBarcode')) {
-							$pdf->write2DBarcode($mecef['qrCode'], 'QRCODE,M', $x + 90, $y - 15, 30, 30);
+					// QR code (affiché à partir du chemin local sauvegardé)
+					if (!empty($object->array_options['options_qr_code'])) {
+						// Le chemin local de l'image du QR code est stocké dans l'extrafield options_qr_code
+						$qr_code_filepath = DOL_DOCUMENT_ROOT . $object->array_options['options_qr_code'];
+
+						// Vérifier si le fichier existe avant de tenter de l'afficher
+						if (file_exists($qr_code_filepath)) {
+							// Positionnement et ajout de l'image du QR code
+							// Ajustez ces valeurs (posx, posy, size) si nécessaire pour le positionnement sur votre PDF
+							$qr_code_posx = $x + 90; // Exemple de position x (à droite des autres infos)
+							$qr_code_posy = $y - 15; // Exemple de position y (légèrement au-dessus de la ligne Compteurs)
+							$qr_code_size = 30; // Taille en millimètres
+
+							// Ajout de l'image du QR code depuis le chemin local en utilisant $pdf->Image()
+							$pdf->Image($qr_code_filepath, $qr_code_posx, $qr_code_posy, $qr_code_size, $qr_code_size, 'PNG');
+						} else {
+							// Optionnel : afficher un message d'erreur ou un placeholder si l'image n'est pas trouvée
+							// $pdf->MultiCell(80, 5, "QR Code non trouvé", 0, 'L', false);
 						}
 					}
 				}
