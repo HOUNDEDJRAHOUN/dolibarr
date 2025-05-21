@@ -1141,6 +1141,39 @@ class pdf_sponge extends ModelePDFFactures
 					$this->addBottomQRInvoice($pdf, $object, $outputlangs);
 				}
 
+				// --- Affichage e-MECeF (DGI) ---
+				if (!empty($object->array_options['options_normalized_data'])) {
+					$mecef = json_decode($object->array_options['options_normalized_data'], true);
+					if ($mecef) {
+						$pdf->SetFont('', 'B', 10);
+						$pdf->SetTextColor(0, 0, 0);
+						$y = $this->page_hauteur - $this->heightforfooter - 40; // Place en bas de page
+						$x = $this->marge_gauche + 2;
+
+						$pdf->SetXY($x, $y);
+						$pdf->MultiCell(80, 6, "e-MECeF (DGI) :", 0, 'L', false);
+
+						$pdf->SetFont('', '', 9);
+						$y += 6;
+						$pdf->SetXY($x, $y);
+						$pdf->MultiCell(80, 5, "Code MECeF : " . ($mecef['codeMECeFDGI'] ?? ''), 0, 'L', false);
+						$y += 5;
+						$pdf->SetXY($x, $y);
+						$pdf->MultiCell(80, 5, "NIM : " . ($mecef['nim'] ?? ''), 0, 'L', false);
+						$y += 5;
+						$pdf->SetXY($x, $y);
+						$pdf->MultiCell(80, 5, "Date/Heure : " . ($mecef['dateTime'] ?? ''), 0, 'L', false);
+						$y += 5;
+						$pdf->SetXY($x, $y);
+						$pdf->MultiCell(80, 5, "Compteurs : " . ($mecef['counters'] ?? ''), 0, 'L', false);
+
+						// QR code
+						if (!empty($mecef['qrCode']) && method_exists($pdf, 'write2DBarcode')) {
+							$pdf->write2DBarcode($mecef['qrCode'], 'QRCODE,M', $x + 90, $y - 15, 30, 30);
+						}
+					}
+				}
+
 				$pdf->Close();
 
 				$pdf->Output($file, 'F');
