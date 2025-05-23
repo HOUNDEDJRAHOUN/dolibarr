@@ -5029,3 +5029,158 @@ Array
     [options_date_time] => 21/05/2025 16:41:10
 )
 
+Réponse API Invoice Post :
+Swagger\Client\Model\InvoiceResponseDto Object
+(
+    [container:protected] => Array
+        (
+            [uid] => 8f7ff697-563d-4a35-92d8-0c6fd65cd193
+            [ta] => 0
+            [tb] => 18
+            [tc] => 0
+            [td] => 18
+            [taa] => 0
+            [tab] => 1239000
+            [tac] => 0
+            [tad] => 0
+            [tae] => 0
+            [taf] => 0
+            [hab] => 1050000
+            [had] => 0
+            [vab] => 189000
+            [vad] => 0
+            [aib] => 0
+            [ts] => 0
+            [total] => 1239000
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Get :
+Swagger\Client\Model\InvoiceDetailsDto Object
+(
+    [container:protected] => Array
+        (
+            [ifu] => 3201710143718
+            [aib] => 
+            [type] => FV
+            [items] => Array
+                (
+                    [0] => Swagger\Client\Model\ItemDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [code] => 
+                                    [name] => IMPRIMANTE
+                                    [price] => 1239000
+                                    [quantity] => 1
+                                    [tax_group] => B
+                                    [tax_specific] => 
+                                    [original_price] => 
+                                    [price_modification] => 
+                                )
+
+                        )
+
+                )
+
+            [client] => Swagger\Client\Model\ClientDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [ifu] => 3234567890987
+                            [name] => JAMES LE BRON
+                            [contact] => 61539729,pichichisolo@gmail.com
+                            [address] => PKota,  Calavi
+                        )
+
+                )
+
+            [operator] => Swagger\Client\Model\OperatorDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [id] => 
+                            [name] =>  SuperAdmin
+                        )
+
+                )
+
+            [payment] => Array
+                (
+                    [0] => Swagger\Client\Model\PaymentDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [name] => ESPECES
+                                    [amount] => 1239000
+                                )
+
+                        )
+
+                )
+
+            [reference] => 
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Confirm :
+Swagger\Client\Model\SecurityElementsDto Object
+(
+    [container:protected] => Array
+        (
+            [date_time] => 22/05/2025 22:16:00
+            [qr_code] => F;TS01000333;TESTADT3IVNT4G3EU5FJHYW2;3201710143718;20250522221600
+            [code_me_ce_fdgi] => TEST-ADT3-IVNT-4G3E-U5FJ-HYW2
+            [counters] => 262/265 FV
+            [nim] => TS01000333
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+QR code image saved locally: H:\xammp\htdocs\dol\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_17_682f9410774c0.png
+Données reçues :
+Array
+(
+    [date_time] => 22/05/2025 22:16:00
+    [qr_code] => /H:\xammp\htdocs\dol\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_17_682f9410774c0.png
+    [code_me_ce_fdgi] => TEST-ADT3-IVNT-4G3E-U5FJ-HYW2
+    [counters] => 262/265 FV
+    [nim] => TS01000333
+)
+
+Données normalisées :
+Array
+(
+    [dateTime] => 22/05/2025 22:16:00
+    [qrCode] => /H:\xammp\htdocs\dol\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_17_682f9410774c0.png
+    [codeMECeFDGI] => TEST-ADT3-IVNT-4G3E-U5FJ-HYW2
+    [counters] => 262/265 FV
+    [nim] => TS01000333
+)
+
+Options actuelles :
+Array
+(
+)
+
+Options après mise à jour :
+Array
+(
+    [options_normalized_data] => {"dateTime":"22\/05\/2025 22:16:00","qrCode":"\/H:\\xammp\\htdocs\\dol\\dolibarr\\htdocs\\compta\\facture\\normaliser\/temp_qr\/qr_invoice_17_682f9410774c0.png","codeMECeFDGI":"TEST-ADT3-IVNT-4G3E-U5FJ-HYW2","counters":"262\/265 FV","nim":"TS01000333"}
+    [options_is_normalized] => 1
+    [options_normalize_date] => 1747948561
+    [options_code_mecef_dgi] => TEST-ADT3-IVNT-4G3E-U5FJ-HYW2
+    [options_nim] => TS01000333
+    [options_qr_code] => /H:\xammp\htdocs\dol\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_17_682f9410774c0.png
+    [options_counters] => 262/265 FV
+    [options_date_time] => 22/05/2025 22:16:00
+)
+

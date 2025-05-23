@@ -2616,12 +2616,36 @@ class pdf_sponge extends ModelePDFFactures
 				$pdf->SetFont('', 'B', $default_font_size);
 				$pdf->MultiCell($widthrecbox - 2, 4, $outputlangs->convToOutputCharset($this->emetteur->name), 0, $ltrdirection);
 				$posy = $pdf->getY();
+
+				// --- Ajout IFU et Pays société ---
+				$pdf->SetFont('', '', $default_font_size - 1);
+				$emetteur_info = '';
+				// IFU société : priorité à l'extrafield, sinon tva_intra, sinon idprof1
+				$ifu_soc = '';
+				if (!empty($this->emetteur->array_options['options_ifu'])) {
+					$ifu_soc = $this->emetteur->array_options['options_ifu'];
+				} elseif (!empty($this->emetteur->tva_intra)) {
+					$ifu_soc = $this->emetteur->tva_intra;
+				} elseif (!empty($this->emetteur->idprof1)) {
+					$ifu_soc = $this->emetteur->idprof1;
+				}
+				if ($ifu_soc) $emetteur_info .= "IFU : " . $ifu_soc . "\n";
+				if (!empty($this->emetteur->country)) $emetteur_info .= "Pays : " . $this->emetteur->country . "\n";
+				// Ajout adresse avec label
+				if (!empty($this->emetteur->address)) $emetteur_info .= "Adresse : " . $this->emetteur->address . "\n";
+				if (!empty($this->emetteur->phone)) $emetteur_info .= "Téléphone : " . $this->emetteur->phone . "\n";
+				if ($emetteur_info) {
+					$pdf->SetXY($posx + 2, $posy);
+					$pdf->MultiCell($widthrecbox - 2, 4, $emetteur_info, 0, $ltrdirection);
+					$posy = $pdf->getY();
+				}
+				// --- Fin ajout ---
 			}
 
 			// Show sender information
-			$pdf->SetXY($posx + 2, $posy);
-			$pdf->SetFont('', '', $default_font_size - 1);
-			$pdf->MultiCell($widthrecbox - 2, 4, $carac_emetteur, 0, $ltrdirection);
+			// $pdf->SetXY($posx + 2, $posy);
+			// $pdf->SetFont('', '', $default_font_size - 1);
+			// $pdf->MultiCell($widthrecbox - 2, 4, $carac_emetteur, 0, $ltrdirection);
 
 			// If BILLING contact defined on invoice, we use it
 			$usecontact = false;
@@ -2672,11 +2696,32 @@ class pdf_sponge extends ModelePDFFactures
 
 			$posy = $pdf->getY();
 
-			// Show recipient information
+			// --- Ajout IFU, adresse, pays, email, téléphone client ---
 			$pdf->SetFont('', '', $default_font_size - 1);
-			$pdf->SetXY($posx + 2, $posy);
-			// @phan-suppress-next-line PhanPluginSuspiciousParamOrder
-			$pdf->MultiCell($widthrecbox - 2, 4, $carac_client, 0, $ltrdirection);
+			$client_info = '';
+			// IFU client : priorité à l'extrafield, sinon idprof1
+			$ifu_client = '';
+			if (!empty($thirdparty->array_options['options_ifu'])) {
+				$ifu_client = $thirdparty->array_options['options_ifu'];
+			} elseif (!empty($thirdparty->idprof1)) {
+				$ifu_client = $thirdparty->idprof1;
+			}
+			if ($ifu_client) $client_info .= "IFU : " . $ifu_client . "\n";
+			if (!empty($thirdparty->country)) $client_info .= "Pays : " . $thirdparty->country . "\n";
+			if (!empty($thirdparty->address)) $client_info .= "Adresse : " . $thirdparty->address . "\n";
+			if (!empty($thirdparty->phone)) $client_info .= "Téléphone : " . $thirdparty->phone . "\n";
+			if ($client_info) {
+				$pdf->SetXY($posx + 2, $posy);
+				$pdf->MultiCell($widthrecbox - 2, 4, $client_info, 0, $ltrdirection);
+				$posy = $pdf->getY();
+			}
+			// --- Fin ajout ---
+
+			// // Show recipient information
+			// $pdf->SetFont('', '', $default_font_size - 1);
+			// $pdf->SetXY($posx + 2, $posy);
+			// // @phan-suppress-next-line PhanPluginSuspiciousParamOrder
+			// $pdf->MultiCell($widthrecbox - 2, 4, $carac_client, 0, $ltrdirection);
 
 			// Show shipping/delivery address
 			if (getDolGlobalInt('INVOICE_SHOW_SHIPPING_ADDRESS')) {
@@ -2740,8 +2785,25 @@ class pdf_sponge extends ModelePDFFactures
 	 */
 	protected function _pagefoot(&$pdf, $object, $outputlangs, $hidefreetext = 0, $heightforqrinvoice = 0)
 	{
+		// On clone l'émetteur et on vide le champ tva_intra pour ne pas afficher le numéro TVA en pied de page
+		$emetteur_sans_tva = clone $this->emetteur;
+		$emetteur_sans_tva->tva_intra = '';
+
 		$showdetails = getDolGlobalInt('MAIN_GENERATE_DOCUMENTS_SHOW_FOOT_DETAILS', 0);
-		return pdf_pagefoot($pdf, $outputlangs, 'INVOICE_FREE_TEXT', $this->emetteur, $heightforqrinvoice + $this->marge_basse, $this->marge_gauche, $this->page_hauteur, $object, $showdetails, $hidefreetext, $this->page_largeur, $this->watermark);
+		return pdf_pagefoot(
+			$pdf,
+			$outputlangs,
+			'INVOICE_FREE_TEXT',
+			$emetteur_sans_tva, // On passe l'émetteur sans TVA
+			$heightforqrinvoice + $this->marge_basse,
+			$this->marge_gauche,
+			$this->page_hauteur,
+			$object,
+			$showdetails,
+			$hidefreetext,
+			$this->page_largeur,
+			$this->watermark
+		);
 	}
 
 	/**

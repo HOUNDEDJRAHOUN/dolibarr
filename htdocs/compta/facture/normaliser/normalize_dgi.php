@@ -96,6 +96,10 @@ if ($decryption == "FACTURE@TDSSTORE@DGI") {
             $product->fetch_optionals();
             if (!empty($product->array_options['options_tax_group'])) {
                 $taxGroup = $product->array_options['options_tax_group'];
+                // Extraire uniquement la lettre avant le '=' si besoin
+                if (strpos($taxGroup, '=') !== false) {
+                    $taxGroup = explode('=', $taxGroup)[0];
+                }
             } elseif ($line->tva_tx == 0) {
                 $taxGroup = 'A';
             }
