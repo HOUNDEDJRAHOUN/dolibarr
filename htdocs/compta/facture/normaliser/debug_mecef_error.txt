@@ -95,3 +95,9 @@ SQL :
 Erreur lors de la mise à jour des données :
 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE fk_object = 15' at line 1
 SQL : 
+Erreur lors de la mise à jour des données :
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE fk_object = 17' at line 1
+SQL : 
+Erreur lors de la mise à jour des données :
+You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE fk_object = 17' at line 1
+SQL : 

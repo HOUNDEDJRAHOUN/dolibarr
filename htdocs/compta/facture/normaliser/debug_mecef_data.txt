@@ -5184,3 +5184,478 @@ Array
     [options_date_time] => 22/05/2025 22:16:00
 )
 
+Réponse API Invoice Post :
+Swagger\Client\Model\InvoiceResponseDto Object
+(
+    [container:protected] => Array
+        (
+            [uid] => aecf790c-18b4-4047-b93a-92e2839abe7c
+            [ta] => 0
+            [tb] => 18
+            [tc] => 0
+            [td] => 18
+            [taa] => 0
+            [tab] => 1239000
+            [tac] => 0
+            [tad] => 0
+            [tae] => 0
+            [taf] => 0
+            [hab] => 1050000
+            [had] => 0
+            [vab] => 189000
+            [vad] => 0
+            [aib] => 0
+            [ts] => 0
+            [total] => 1239000
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Get :
+Swagger\Client\Model\InvoiceDetailsDto Object
+(
+    [container:protected] => Array
+        (
+            [ifu] => 3201710143718
+            [aib] => 
+            [type] => FV
+            [items] => Array
+                (
+                    [0] => Swagger\Client\Model\ItemDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [code] => 
+                                    [name] => IMPRIMANTE
+                                    [price] => 1239000
+                                    [quantity] => 1
+                                    [tax_group] => B
+                                    [tax_specific] => 
+                                    [original_price] => 
+                                    [price_modification] => 
+                                )
+
+                        )
+
+                )
+
+            [client] => Swagger\Client\Model\ClientDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [ifu] => 3234567890987
+                            [name] => JAMES LE BRON
+                            [contact] => 61539729,pichichisolo@gmail.com
+                            [address] => PKota,  Calavi
+                        )
+
+                )
+
+            [operator] => Swagger\Client\Model\OperatorDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [id] => 
+                            [name] =>  SuperAdmin
+                        )
+
+                )
+
+            [payment] => Array
+                (
+                    [0] => Swagger\Client\Model\PaymentDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [name] => ESPECES
+                                    [amount] => 1239000
+                                )
+
+                        )
+
+                )
+
+            [reference] => 
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Confirm :
+Swagger\Client\Model\SecurityElementsDto Object
+(
+    [container:protected] => Array
+        (
+            [date_time] => 23/05/2025 13:56:12
+            [qr_code] => F;TS01000333;TESTA4OT2N43HKRPS7MLHXFJ;3201710143718;20250523135612
+            [code_me_ce_fdgi] => TEST-A4OT-2N43-HKRP-S7ML-HXFJ
+            [counters] => 263/266 FV
+            [nim] => TS01000333
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+QR code image saved locally: H:\xammp\htdocs\dol\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_17_6830706bd08a5.png
+Données reçues :
+Array
+(
+    [date_time] => 23/05/2025 13:56:12
+    [qr_code] => /H:\xammp\htdocs\dol\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_17_6830706bd08a5.png
+    [code_me_ce_fdgi] => TEST-A4OT-2N43-HKRP-S7ML-HXFJ
+    [counters] => 263/266 FV
+    [nim] => TS01000333
+)
+
+Données normalisées :
+Array
+(
+    [dateTime] => 23/05/2025 13:56:12
+    [qrCode] => /H:\xammp\htdocs\dol\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_17_6830706bd08a5.png
+    [codeMECeFDGI] => TEST-A4OT-2N43-HKRP-S7ML-HXFJ
+    [counters] => 263/266 FV
+    [nim] => TS01000333
+)
+
+Options actuelles :
+Array
+(
+)
+
+Options après mise à jour :
+Array
+(
+    [options_normalized_data] => {"dateTime":"23\/05\/2025 13:56:12","qrCode":"\/H:\\xammp\\htdocs\\dol\\dolibarr\\htdocs\\compta\\facture\\normaliser\/temp_qr\/qr_invoice_17_6830706bd08a5.png","codeMECeFDGI":"TEST-A4OT-2N43-HKRP-S7ML-HXFJ","counters":"263\/266 FV","nim":"TS01000333"}
+    [options_is_normalized] => 1
+    [options_normalize_date] => 1748004973
+    [options_code_mecef_dgi] => TEST-A4OT-2N43-HKRP-S7ML-HXFJ
+    [options_nim] => TS01000333
+    [options_qr_code] => /H:\xammp\htdocs\dol\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_17_6830706bd08a5.png
+    [options_counters] => 263/266 FV
+    [options_date_time] => 23/05/2025 13:56:12
+)
+
+Début de la normalisation - 2025-05-23 17:39:29
+Token reçu: 
+Paramètre i reçu: O2jtqVD33zg=
+Résultat du décryptage: FACTURE@TDSSTORE@DGI
+Connexion API réussie
+Réponse API Invoice Post :
+Swagger\Client\Model\InvoiceResponseDto Object
+(
+    [container:protected] => Array
+        (
+            [uid] => a2a52413-7f07-4a08-aa2b-316ac985a65c
+            [ta] => 0
+            [tb] => 18
+            [tc] => 0
+            [td] => 18
+            [taa] => 0
+            [tab] => 1239000
+            [tac] => 0
+            [tad] => 0
+            [tae] => 0
+            [taf] => 0
+            [hab] => 1050000
+            [had] => 0
+            [vab] => 189000
+            [vad] => 0
+            [aib] => 0
+            [ts] => 0
+            [total] => 1239000
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Get :
+Swagger\Client\Model\InvoiceDetailsDto Object
+(
+    [container:protected] => Array
+        (
+            [ifu] => 3201710143718
+            [aib] => 
+            [type] => FV
+            [items] => Array
+                (
+                    [0] => Swagger\Client\Model\ItemDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [code] => 
+                                    [name] => IMPRIMANTE
+                                    [price] => 1239000
+                                    [quantity] => 1
+                                    [tax_group] => B
+                                    [tax_specific] => 
+                                    [original_price] => 
+                                    [price_modification] => 
+                                )
+
+                        )
+
+                )
+
+            [client] => Swagger\Client\Model\ClientDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [ifu] => 3234567890987
+                            [name] => JAMES LE BRON
+                            [contact] => 61539729,pichichisolo@gmail.com
+                            [address] => PKota,  Calavi
+                        )
+
+                )
+
+            [operator] => Swagger\Client\Model\OperatorDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [id] => 
+                            [name] =>  SuperAdmin
+                        )
+
+                )
+
+            [payment] => Array
+                (
+                    [0] => Swagger\Client\Model\PaymentDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [name] => ESPECES
+                                    [amount] => 1239000
+                                )
+
+                        )
+
+                )
+
+            [reference] => 
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Confirm :
+Swagger\Client\Model\SecurityElementsDto Object
+(
+    [container:protected] => Array
+        (
+            [date_time] => 23/05/2025 16:39:34
+            [qr_code] => F;TS01000333;TESTZ5WTHI2MHLE6PU26RLBA;3201710143718;20250523163934
+            [code_me_ce_fdgi] => TEST-Z5WT-HI2M-HLE6-PU26-RLBA
+            [counters] => 264/267 FV
+            [nim] => TS01000333
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+QR code image saved locally: H:/xammp/htdocs/dol/dolibarr/documents/temp_qr/qr_invoice_17_683096b597285.png
+Données reçues :
+Array
+(
+    [date_time] => 23/05/2025 16:39:34
+    [qr_code] => /H:/xammp/htdocs/dol/dolibarr/documents/temp_qr/qr_invoice_17_683096b597285.png
+    [code_me_ce_fdgi] => TEST-Z5WT-HI2M-HLE6-PU26-RLBA
+    [counters] => 264/267 FV
+    [nim] => TS01000333
+)
+
+Données normalisées :
+Array
+(
+    [dateTime] => 23/05/2025 16:39:34
+    [qrCode] => /H:/xammp/htdocs/dol/dolibarr/documents/temp_qr/qr_invoice_17_683096b597285.png
+    [codeMECeFDGI] => TEST-Z5WT-HI2M-HLE6-PU26-RLBA
+    [counters] => 264/267 FV
+    [nim] => TS01000333
+)
+
+Options actuelles :
+Array
+(
+)
+
+Options après mise à jour :
+Array
+(
+    [options_normalized_data] => {"dateTime":"23\/05\/2025 16:39:34","qrCode":"\/H:\/xammp\/htdocs\/dol\/dolibarr\/documents\/temp_qr\/qr_invoice_17_683096b597285.png","codeMECeFDGI":"TEST-Z5WT-HI2M-HLE6-PU26-RLBA","counters":"264\/267 FV","nim":"TS01000333"}
+    [options_is_normalized] => 1
+    [options_normalize_date] => 1748014777
+    [options_code_mecef_dgi] => TEST-Z5WT-HI2M-HLE6-PU26-RLBA
+    [options_nim] => TS01000333
+    [options_qr_code] => /H:/xammp/htdocs/dol/dolibarr/documents/temp_qr/qr_invoice_17_683096b597285.png
+    [options_counters] => 264/267 FV
+    [options_date_time] => 23/05/2025 16:39:34
+)
+
+Début de la normalisation - 2025-05-23 19:32:08
+Token reçu: 
+Paramètre i reçu: O2jtqVD33zY=
+Résultat du décryptage: FACTURE@TDSSTORE@DGI
+Connexion API réussie
+Réponse API Invoice Post :
+Swagger\Client\Model\InvoiceResponseDto Object
+(
+    [container:protected] => Array
+        (
+            [uid] => c69ad11b-3e36-4d3e-b425-08f5f1a97205
+            [ta] => 0
+            [tb] => 18
+            [tc] => 0
+            [td] => 18
+            [taa] => 0
+            [tab] => 1049964
+            [tac] => 0
+            [tad] => 0
+            [tae] => 0
+            [taf] => 0
+            [hab] => 889800
+            [had] => 0
+            [vab] => 160164
+            [vad] => 0
+            [aib] => 0
+            [ts] => 0
+            [total] => 1049964
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Get :
+Swagger\Client\Model\InvoiceDetailsDto Object
+(
+    [container:protected] => Array
+        (
+            [ifu] => 3201710143718
+            [aib] => 
+            [type] => FV
+            [items] => Array
+                (
+                    [0] => Swagger\Client\Model\ItemDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [code] => 
+                                    [name] => Enregistrement du nom de domaine
+                                    [price] => 1049964
+                                    [quantity] => 1
+                                    [tax_group] => B
+                                    [tax_specific] => 
+                                    [original_price] => 
+                                    [price_modification] => 
+                                )
+
+                        )
+
+                )
+
+            [client] => Swagger\Client\Model\ClientDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [ifu] => 3234567890987
+                            [name] => JAMES LE BRON
+                            [contact] => 61539729,pichichisolo@gmail.com
+                            [address] => PKota,  Calavi
+                        )
+
+                )
+
+            [operator] => Swagger\Client\Model\OperatorDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [id] => 
+                            [name] =>  SuperAdmin
+                        )
+
+                )
+
+            [payment] => Array
+                (
+                    [0] => Swagger\Client\Model\PaymentDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [name] => ESPECES
+                                    [amount] => 1049964
+                                )
+
+                        )
+
+                )
+
+            [reference] => 
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Confirm :
+Swagger\Client\Model\SecurityElementsDto Object
+(
+    [container:protected] => Array
+        (
+            [date_time] => 23/05/2025 18:32:09
+            [qr_code] => F;TS01000333;TEST2FOXCLBLJVWPIKRAMXVQ;3201710143718;20250523183209
+            [code_me_ce_fdgi] => TEST-2FOX-CLBL-JVWP-IKRA-MXVQ
+            [counters] => 265/268 FV
+            [nim] => TS01000333
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+QR code image saved locally: H:/xammp/htdocs/dol/dolibarr/documents/temp_qr/qr_invoice_19_6830b118d60e7.png
+Données reçues :
+Array
+(
+    [date_time] => 23/05/2025 18:32:09
+    [qr_code] => /H:/xammp/htdocs/dol/dolibarr/documents/temp_qr/qr_invoice_19_6830b118d60e7.png
+    [code_me_ce_fdgi] => TEST-2FOX-CLBL-JVWP-IKRA-MXVQ
+    [counters] => 265/268 FV
+    [nim] => TS01000333
+)
+
+Données normalisées :
+Array
+(
+    [dateTime] => 23/05/2025 18:32:09
+    [qrCode] => /H:/xammp/htdocs/dol/dolibarr/documents/temp_qr/qr_invoice_19_6830b118d60e7.png
+    [codeMECeFDGI] => TEST-2FOX-CLBL-JVWP-IKRA-MXVQ
+    [counters] => 265/268 FV
+    [nim] => TS01000333
+)
+
+Options actuelles :
+Array
+(
+)
+
+Options après mise à jour :
+Array
+(
+    [options_normalized_data] => {"dateTime":"23\/05\/2025 18:32:09","qrCode":"\/H:\/xammp\/htdocs\/dol\/dolibarr\/documents\/temp_qr\/qr_invoice_19_6830b118d60e7.png","codeMECeFDGI":"TEST-2FOX-CLBL-JVWP-IKRA-MXVQ","counters":"265\/268 FV","nim":"TS01000333"}
+    [options_is_normalized] => 1
+    [options_normalize_date] => 1748021530
+    [options_code_mecef_dgi] => TEST-2FOX-CLBL-JVWP-IKRA-MXVQ
+    [options_nim] => TS01000333
+    [options_qr_code] => /H:/xammp/htdocs/dol/dolibarr/documents/temp_qr/qr_invoice_19_6830b118d60e7.png
+    [options_counters] => 265/268 FV
+    [options_date_time] => 23/05/2025 18:32:09
+)
+

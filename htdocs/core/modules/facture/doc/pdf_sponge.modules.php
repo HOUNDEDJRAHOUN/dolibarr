@@ -1149,23 +1149,23 @@ class pdf_sponge extends ModelePDFFactures
 				// --- Affichage e-MECeF (DGI) ---
 				// Vérifier si la facture est normalisée et si l'extrafield options_qr_code existe et n'est pas vide
 				if (!empty($object->array_options['options_is_normalized']) && !empty($object->array_options['options_qr_code'])) {
-					$pdf->SetFont('', 'B', 10);
-					$pdf->SetTextColor(0, 0, 0);
+						$pdf->SetFont('', 'B', 10);
+						$pdf->SetTextColor(0, 0, 0);
 					$y = $this->page_hauteur - $this->heightforfooter - 40; // Position en bas de page
-					$x = $this->marge_gauche + 2;
+						$x = $this->marge_gauche + 2;
 
-					$pdf->SetXY($x, $y);
-					$pdf->MultiCell(80, 6, "e-MECeF (DGI) :", 0, 'L', false);
+						$pdf->SetXY($x, $y);
+						$pdf->MultiCell(80, 6, "e-MECeF (DGI) :", 0, 'L', false);
 
-					$pdf->SetFont('', '', 9);
-					$y += 6;
-					$pdf->SetXY($x, $y);
+						$pdf->SetFont('', '', 9);
+						$y += 6;
+						$pdf->SetXY($x, $y);
 					$pdf->MultiCell(80, 5, "Code MECeF : " . ($object->array_options['options_code_mecef_dgi'] ?? ''), 0, 'L', false);
-					$y += 5;
-					$pdf->SetXY($x, $y);
+						$y += 5;
+						$pdf->SetXY($x, $y);
 					$pdf->MultiCell(80, 5, "NIM : " . ($object->array_options['options_nim'] ?? ''), 0, 'L', false);
-					$y += 5;
-					$pdf->SetXY($x, $y);
+						$y += 5;
+						$pdf->SetXY($x, $y);
 					$pdf->MultiCell(80, 5, "Compteurs : " . ($object->array_options['options_counters'] ?? ''), 0, 'L', false);
 
 					// QR code (affiché à partir du chemin local sauvegardé)
@@ -2711,7 +2711,7 @@ class pdf_sponge extends ModelePDFFactures
 			if (!empty($thirdparty->address)) $client_info .= "Adresse : " . $thirdparty->address . "\n";
 			if (!empty($thirdparty->phone)) $client_info .= "Téléphone : " . $thirdparty->phone . "\n";
 			if ($client_info) {
-				$pdf->SetXY($posx + 2, $posy);
+			$pdf->SetXY($posx + 2, $posy);
 				$pdf->MultiCell($widthrecbox - 2, 4, $client_info, 0, $ltrdirection);
 				$posy = $pdf->getY();
 			}
