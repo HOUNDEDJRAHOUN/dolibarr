@@ -5659,3 +5659,313 @@ Array
     [options_date_time] => 23/05/2025 18:32:09
 )
 
+Réponse API Invoice Post :
+Swagger\Client\Model\InvoiceResponseDto Object
+(
+    [container:protected] => Array
+        (
+            [uid] => 4bacba6d-2f8c-477c-a03a-0afa1bc53c0e
+            [ta] => 0
+            [tb] => 18
+            [tc] => 0
+            [td] => 18
+            [taa] => 0
+            [tab] => 2504196
+            [tac] => 0
+            [tad] => 0
+            [tae] => 0
+            [taf] => 0
+            [hab] => 2122200
+            [had] => 0
+            [vab] => 381996
+            [vad] => 0
+            [aib] => 0
+            [ts] => 0
+            [total] => 2504196
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Get :
+Swagger\Client\Model\InvoiceDetailsDto Object
+(
+    [container:protected] => Array
+        (
+            [ifu] => 3201710143718
+            [aib] => 
+            [type] => FV
+            [items] => Array
+                (
+                    [0] => Swagger\Client\Model\ItemDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [code] => 
+                                    [name] => IFUE
+                                    [price] => 2504196
+                                    [quantity] => 1
+                                    [tax_group] => B
+                                    [tax_specific] => 
+                                    [original_price] => 
+                                    [price_modification] => 
+                                )
+
+                        )
+
+                )
+
+            [client] => Swagger\Client\Model\ClientDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [ifu] => 3242341234354
+                            [name] => Victoria
+                            [contact] => 0695898569,pichichisolo@gmail.com
+                            [address] => Marseille,Rolo, 03101 Bordeaux
+                        )
+
+                )
+
+            [operator] => Swagger\Client\Model\OperatorDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [id] => 
+                            [name] =>  SuperAdmin
+                        )
+
+                )
+
+            [payment] => Array
+                (
+                    [0] => Swagger\Client\Model\PaymentDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [name] => ESPECES
+                                    [amount] => 2504196
+                                )
+
+                        )
+
+                )
+
+            [reference] => 
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Confirm :
+Swagger\Client\Model\SecurityElementsDto Object
+(
+    [container:protected] => Array
+        (
+            [date_time] => 26/05/2025 17:28:33
+            [qr_code] => F;TS01000333;TESTOPBV5OCIA47IPZXKHW4U;3201710143718;20250526172833
+            [code_me_ce_fdgi] => TEST-OPBV-5OCI-A47I-PZXK-HW4U
+            [counters] => 267/270 FV
+            [nim] => TS01000333
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+QR code image saved locally: C:\xampp\htdocs\dolib\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_2_683496b165395.png
+Données reçues :
+Array
+(
+    [date_time] => 26/05/2025 17:28:33
+    [qr_code] => /C:\xampp\htdocs\dolib\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_2_683496b165395.png
+    [code_me_ce_fdgi] => TEST-OPBV-5OCI-A47I-PZXK-HW4U
+    [counters] => 267/270 FV
+    [nim] => TS01000333
+)
+
+Données normalisées :
+Array
+(
+    [dateTime] => 26/05/2025 17:28:33
+    [qrCode] => /C:\xampp\htdocs\dolib\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_2_683496b165395.png
+    [codeMECeFDGI] => TEST-OPBV-5OCI-A47I-PZXK-HW4U
+    [counters] => 267/270 FV
+    [nim] => TS01000333
+)
+
+Options actuelles :
+Array
+(
+)
+
+Options après mise à jour :
+Array
+(
+    [options_normalized_data] => {"dateTime":"26\/05\/2025 17:28:33","qrCode":"\/C:\\xampp\\htdocs\\dolib\\dolibarr\\htdocs\\compta\\facture\\normaliser\/temp_qr\/qr_invoice_2_683496b165395.png","codeMECeFDGI":"TEST-OPBV-5OCI-A47I-PZXK-HW4U","counters":"267\/270 FV","nim":"TS01000333"}
+    [options_is_normalized] => 1
+    [options_normalize_date] => 1748276914
+    [options_code_mecef_dgi] => TEST-OPBV-5OCI-A47I-PZXK-HW4U
+    [options_nim] => TS01000333
+    [options_qr_code] => /C:\xampp\htdocs\dolib\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_2_683496b165395.png
+    [options_counters] => 267/270 FV
+    [options_date_time] => 26/05/2025 17:28:33
+)
+
+Réponse API Invoice Post :
+Swagger\Client\Model\InvoiceResponseDto Object
+(
+    [container:protected] => Array
+        (
+            [uid] => 49131683-4ab4-42e9-af60-78a3e9f2dd9f
+            [ta] => 0
+            [tb] => 18
+            [tc] => 0
+            [td] => 18
+            [taa] => 0
+            [tab] => 2360000
+            [tac] => 0
+            [tad] => 0
+            [tae] => 0
+            [taf] => 0
+            [hab] => 2000000
+            [had] => 0
+            [vab] => 360000
+            [vad] => 0
+            [aib] => 0
+            [ts] => 0
+            [total] => 2360000
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Get :
+Swagger\Client\Model\InvoiceDetailsDto Object
+(
+    [container:protected] => Array
+        (
+            [ifu] => 3201710143718
+            [aib] => 
+            [type] => FV
+            [items] => Array
+                (
+                    [0] => Swagger\Client\Model\ItemDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [code] => 
+                                    [name] => Jene
+                                    [price] => 2360000
+                                    [quantity] => 1
+                                    [tax_group] => B
+                                    [tax_specific] => 
+                                    [original_price] => 
+                                    [price_modification] => 
+                                )
+
+                        )
+
+                )
+
+            [client] => Swagger\Client\Model\ClientDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [ifu] => 3242341234354
+                            [name] => Victoria
+                            [contact] => 0695898569,pichichisolo@gmail.com
+                            [address] => Marseille,Rolo, 03101 Bordeaux
+                        )
+
+                )
+
+            [operator] => Swagger\Client\Model\OperatorDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [id] => 
+                            [name] =>  SuperAdmin
+                        )
+
+                )
+
+            [payment] => Array
+                (
+                    [0] => Swagger\Client\Model\PaymentDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [name] => ESPECES
+                                    [amount] => 2360000
+                                )
+
+                        )
+
+                )
+
+            [reference] => 
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Confirm :
+Swagger\Client\Model\SecurityElementsDto Object
+(
+    [container:protected] => Array
+        (
+            [date_time] => 26/05/2025 18:40:30
+            [qr_code] => F;TS01000333;TESTZHUB25DXOT3UTYNZF2B2;3201710143718;20250526184030
+            [code_me_ce_fdgi] => TEST-ZHUB-25DX-OT3U-TYNZ-F2B2
+            [counters] => 268/271 FV
+            [nim] => TS01000333
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+QR code image saved locally: C:\xampp\htdocs\dolib\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_4_6834a78e66465.png
+Données reçues :
+Array
+(
+    [date_time] => 26/05/2025 18:40:30
+    [qr_code] => /C:\xampp\htdocs\dolib\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_4_6834a78e66465.png
+    [code_me_ce_fdgi] => TEST-ZHUB-25DX-OT3U-TYNZ-F2B2
+    [counters] => 268/271 FV
+    [nim] => TS01000333
+)
+
+Données normalisées :
+Array
+(
+    [dateTime] => 26/05/2025 18:40:30
+    [qrCode] => /C:\xampp\htdocs\dolib\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_4_6834a78e66465.png
+    [codeMECeFDGI] => TEST-ZHUB-25DX-OT3U-TYNZ-F2B2
+    [counters] => 268/271 FV
+    [nim] => TS01000333
+)
+
+Options actuelles :
+Array
+(
+)
+
+Options après mise à jour :
+Array
+(
+    [options_normalized_data] => {"dateTime":"26\/05\/2025 18:40:30","qrCode":"\/C:\\xampp\\htdocs\\dolib\\dolibarr\\htdocs\\compta\\facture\\normaliser\/temp_qr\/qr_invoice_4_6834a78e66465.png","codeMECeFDGI":"TEST-ZHUB-25DX-OT3U-TYNZ-F2B2","counters":"268\/271 FV","nim":"TS01000333"}
+    [options_is_normalized] => 1
+    [options_normalize_date] => 1748281232
+    [options_code_mecef_dgi] => TEST-ZHUB-25DX-OT3U-TYNZ-F2B2
+    [options_nim] => TS01000333
+    [options_qr_code] => /C:\xampp\htdocs\dolib\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_4_6834a78e66465.png
+    [options_counters] => 268/271 FV
+    [options_date_time] => 26/05/2025 18:40:30
+)
+
