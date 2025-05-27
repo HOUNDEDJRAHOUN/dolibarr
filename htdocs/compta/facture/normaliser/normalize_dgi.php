@@ -300,7 +300,19 @@ if ($decryption == "FACTURE@TDSSTORE@DGI") {
                     $note_html .= '<tr>';
                     // Cellule pour les informations textuelles
                     $note_html .= '<td style="width: 70%; font-size: 9px;">'; // Ajustez la taille de la police si nécessaire
-                    $note_html .= '<b>Facture normalisée e-MECeF le ' . dol_print_date(dol_now(), 'dayhourtext') . '</b><br>';
+                    // Conversion automatique de la date UTC vers GMT+1
+                    $date_utc = $data['date_time'] ?? null;
+                    $date_local_str = '';
+                    if ($date_utc) {
+                        try {
+                            $date = new DateTime($date_utc, new DateTimeZone('UTC'));
+                            $date->setTimezone(new DateTimeZone('Africa/Cotonou'));
+                            $date_local_str = $date->format('d/m/Y H:i');
+                        } catch (Exception $e) {
+                            $date_local_str = $date_utc; // fallback brut si erreur
+                        }
+                    }
+                    $note_html .= '<b>Facture normalisée e-MECeF le ' . $date_local_str . '</b><br>';
                     $note_html .= '<b>Code MECeF/DGI :</b> ' . ($data['code_me_ce_fdgi'] ?? '') . '<br>';
                     $note_html .= '<b>NIM :</b> ' . ($data['nim'] ?? '') . '<br>';
                     $note_html .= '<b>Compteurs :</b> ' . ($data['counters'] ?? '');
@@ -331,11 +343,20 @@ if ($decryption == "FACTURE@TDSSTORE@DGI") {
                     if ($result < 0) {
                         die('Erreur lors de la mise à jour de la note : ' . $invoice->error);
                     }
+                    
+                    // Construire l'URL de redirection avec le message de succès
+                    $redirect_url = $callback;
+                    if (strpos($redirect_url, '?') !== false) {
+                        $redirect_url .= '&success=1&message=' . urlencode('La normalisation a été effectuée avec succès.');
+                    } else {
+                        $redirect_url .= '?success=1&message=' . urlencode('La normalisation a été effectuée avec succès.');
+                    }
+                    
                     if (!headers_sent()) {
-                        header('Location: ' . $callback);
+                        header('Location: ' . $redirect_url);
                         exit;
                     } else {
-                        echo '<script>window.location.href = '.json_encode($callback).';</script>';
+                        echo '<script>window.location.href = '.json_encode($redirect_url).';</script>';
                         exit;
                     }
                 }

@@ -11,6 +11,16 @@ if (isset($action) && ($action == 'create' || $action == 'edit')) {
     return;
 }
 
+// Afficher le message de succès si la normalisation a réussi
+if (isset($_GET['success']) && $_GET['success'] == '1' && isset($_GET['message'])) {
+    setEventMessages(htmlspecialchars($_GET['message']), null, 'mesgs');
+}
+
+// Afficher le message d'erreur de jeton expiré uniquement si pas de succès
+else if (isset($_GET['error']) && $_GET['error'] == 'token_expired') {
+    echo '<div class="error">Le jeton de sécurité a expiré. Veuillez ré-essayer la normalisation.</div>';
+}
+
 // Vérification que nous avons bien une facture
 if (isset($object) && is_object($object) && method_exists($object, 'getLibStatut')) {
     error_log("Facture valide détectée");
@@ -21,11 +31,6 @@ if (isset($object) && is_object($object) && method_exists($object, 'getLibStatut
         error_log("Pays client: " . $object->thirdparty->country_code);
     } else {
         error_log("Pas de tiers associé à la facture");
-    }
-
-    // Afficher le message d'erreur si le token est expiré
-    if (isset($_GET['error']) && $_GET['error'] == 'token_expired') {
-        echo '<div class="error">Le jeton de sécurité a expiré. Veuillez ré-essayer la normalisation.</div>';
     }
 
     // Vérifier si la facture est validée et pas encore normalisée

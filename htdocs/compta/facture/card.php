@@ -58,6 +58,15 @@ require_once DOL_DOCUMENT_ROOT.'/core/lib/invoice.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/functions2.lib.php';
 require_once DOL_DOCUMENT_ROOT.'/core/lib/date.lib.php';
 
+// Masquer les messages d'erreur globaux si succès de normalisation
+if (isset($_GET['success']) && $_GET['success'] == '1') {
+    if (isset($_SESSION['dol_events'])) {
+        unset($_SESSION['dol_events']);
+    }
+    global $mesg, $mesgs, $error, $errors, $warning, $warnings;
+    $mesg = $mesgs = $error = $errors = $warning = $warnings = null;
+}
+
 if (isModEnabled('order')) {
 	require_once DOL_DOCUMENT_ROOT.'/commande/class/commande.class.php';
 }
