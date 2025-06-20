@@ -6899,3 +6899,468 @@ Array
     [options_date_time] => 27/05/2025 19:07:58
 )
 
+Réponse API Invoice Post :
+Swagger\Client\Model\InvoiceResponseDto Object
+(
+    [container:protected] => Array
+        (
+            [uid] => bb6b3102-5382-4af7-95ed-3004bee351c0
+            [ta] => 0
+            [tb] => 18
+            [tc] => 0
+            [td] => 18
+            [taa] => 0
+            [tab] => 5900000
+            [tac] => 0
+            [tad] => 0
+            [tae] => 0
+            [taf] => 0
+            [hab] => 5000000
+            [had] => 0
+            [vab] => 900000
+            [vad] => 0
+            [aib] => 0
+            [ts] => 0
+            [total] => 5900000
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Get :
+Swagger\Client\Model\InvoiceDetailsDto Object
+(
+    [container:protected] => Array
+        (
+            [ifu] => 3201710143718
+            [aib] => 
+            [type] => FV
+            [items] => Array
+                (
+                    [0] => Swagger\Client\Model\ItemDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [code] => 
+                                    [name] => hosting_rrsearcn
+                                    [price] => 5900000
+                                    [quantity] => 1
+                                    [tax_group] => B
+                                    [tax_specific] => 
+                                    [original_price] => 
+                                    [price_modification] => 
+                                )
+
+                        )
+
+                )
+
+            [client] => Swagger\Client\Model\ClientDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [ifu] => armel.djiko
+                            [name] => JAMES
+                            [contact] => 0688888886,ahoundedjrahoun@gmail.com
+                            [address] => cotonou,cadjehoun, 85225 Cotonou
+                        )
+
+                )
+
+            [operator] => Swagger\Client\Model\OperatorDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [id] => 
+                            [name] =>  SuperAdmin
+                        )
+
+                )
+
+            [payment] => Array
+                (
+                    [0] => Swagger\Client\Model\PaymentDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [name] => ESPECES
+                                    [amount] => 5900000
+                                )
+
+                        )
+
+                )
+
+            [reference] => 
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Confirm :
+Swagger\Client\Model\SecurityElementsDto Object
+(
+    [container:protected] => Array
+        (
+            [date_time] => 19/06/2025 09:34:38
+            [qr_code] => F;TS01000333;TESTLIMEEP2I3I4FOBJYSCOY;3201710143718;20250619093438
+            [code_me_ce_fdgi] => TEST-LIME-EP2I-3I4F-OBJY-SCOY
+            [counters] => 299/302 FV
+            [nim] => TS01000333
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+QR code image saved locally: C:\xampp\htdocs\dob\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_1_6853cb9d18a34.png
+Données reçues :
+Array
+(
+    [date_time] => 19/06/2025 09:34:38
+    [qr_code] => /C:\xampp\htdocs\dob\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_1_6853cb9d18a34.png
+    [code_me_ce_fdgi] => TEST-LIME-EP2I-3I4F-OBJY-SCOY
+    [counters] => 299/302 FV
+    [nim] => TS01000333
+)
+
+Données normalisées :
+Array
+(
+    [dateTime] => 19/06/2025 09:34:38
+    [qrCode] => /C:\xampp\htdocs\dob\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_1_6853cb9d18a34.png
+    [codeMECeFDGI] => TEST-LIME-EP2I-3I4F-OBJY-SCOY
+    [counters] => 299/302 FV
+    [nim] => TS01000333
+)
+
+Options actuelles :
+Array
+(
+)
+
+Options après mise à jour :
+Array
+(
+    [options_normalized_data] => {"dateTime":"19\/06\/2025 09:34:38","qrCode":"\/C:\\xampp\\htdocs\\dob\\dolibarr\\htdocs\\compta\\facture\\normaliser\/temp_qr\/qr_invoice_1_6853cb9d18a34.png","codeMECeFDGI":"TEST-LIME-EP2I-3I4F-OBJY-SCOY","counters":"299\/302 FV","nim":"TS01000333"}
+    [options_is_normalized] => 1
+    [options_normalize_date] => 1750322078
+    [options_code_mecef_dgi] => TEST-LIME-EP2I-3I4F-OBJY-SCOY
+    [options_nim] => TS01000333
+    [options_qr_code] => /C:\xampp\htdocs\dob\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_1_6853cb9d18a34.png
+    [options_counters] => 299/302 FV
+    [options_date_time] => 19/06/2025 09:34:38
+)
+
+Réponse API Invoice Post :
+Swagger\Client\Model\InvoiceResponseDto Object
+(
+    [container:protected] => Array
+        (
+            [uid] => 0c3efb59-bdb5-414c-b804-5fb71a711e9d
+            [ta] => 0
+            [tb] => 18
+            [tc] => 0
+            [td] => 18
+            [taa] => 0
+            [tab] => 5900000
+            [tac] => 0
+            [tad] => 0
+            [tae] => 0
+            [taf] => 0
+            [hab] => 5000000
+            [had] => 0
+            [vab] => 900000
+            [vad] => 0
+            [aib] => 0
+            [ts] => 0
+            [total] => 5900000
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Get :
+Swagger\Client\Model\InvoiceDetailsDto Object
+(
+    [container:protected] => Array
+        (
+            [ifu] => 3201710143718
+            [aib] => 
+            [type] => FV
+            [items] => Array
+                (
+                    [0] => Swagger\Client\Model\ItemDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [code] => 
+                                    [name] => hosting_rrsearcn
+                                    [price] => 5900000
+                                    [quantity] => 1
+                                    [tax_group] => B
+                                    [tax_specific] => 
+                                    [original_price] => 
+                                    [price_modification] => 
+                                )
+
+                        )
+
+                )
+
+            [client] => Swagger\Client\Model\ClientDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [ifu] => armel.djiko
+                            [name] => JAMES
+                            [contact] => 0688888886,ahoundedjrahoun@gmail.com
+                            [address] => cotonou,cadjehoun, 85225 Cotonou
+                        )
+
+                )
+
+            [operator] => Swagger\Client\Model\OperatorDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [id] => 
+                            [name] =>  SuperAdmin
+                        )
+
+                )
+
+            [payment] => Array
+                (
+                    [0] => Swagger\Client\Model\PaymentDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [name] => ESPECES
+                                    [amount] => 5900000
+                                )
+
+                        )
+
+                )
+
+            [reference] => 
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Confirm :
+Swagger\Client\Model\SecurityElementsDto Object
+(
+    [container:protected] => Array
+        (
+            [date_time] => 19/06/2025 09:38:45
+            [qr_code] => F;TS01000333;TESTNJVKWJ7OVLLAUPSM6762;3201710143718;20250619093845
+            [code_me_ce_fdgi] => TEST-NJVK-WJ7O-VLLA-UPSM-6762
+            [counters] => 300/303 FV
+            [nim] => TS01000333
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+QR code image saved locally: C:\xampp\htdocs\dob\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_2_6853cc940560a.png
+Données reçues :
+Array
+(
+    [date_time] => 19/06/2025 09:38:45
+    [qr_code] => /C:\xampp\htdocs\dob\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_2_6853cc940560a.png
+    [code_me_ce_fdgi] => TEST-NJVK-WJ7O-VLLA-UPSM-6762
+    [counters] => 300/303 FV
+    [nim] => TS01000333
+)
+
+Données normalisées :
+Array
+(
+    [dateTime] => 19/06/2025 09:38:45
+    [qrCode] => /C:\xampp\htdocs\dob\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_2_6853cc940560a.png
+    [codeMECeFDGI] => TEST-NJVK-WJ7O-VLLA-UPSM-6762
+    [counters] => 300/303 FV
+    [nim] => TS01000333
+)
+
+Options actuelles :
+Array
+(
+)
+
+Options après mise à jour :
+Array
+(
+    [options_normalized_data] => {"dateTime":"19\/06\/2025 09:38:45","qrCode":"\/C:\\xampp\\htdocs\\dob\\dolibarr\\htdocs\\compta\\facture\\normaliser\/temp_qr\/qr_invoice_2_6853cc940560a.png","codeMECeFDGI":"TEST-NJVK-WJ7O-VLLA-UPSM-6762","counters":"300\/303 FV","nim":"TS01000333"}
+    [options_is_normalized] => 1
+    [options_normalize_date] => 1750322325
+    [options_code_mecef_dgi] => TEST-NJVK-WJ7O-VLLA-UPSM-6762
+    [options_nim] => TS01000333
+    [options_qr_code] => /C:\xampp\htdocs\dob\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_2_6853cc940560a.png
+    [options_counters] => 300/303 FV
+    [options_date_time] => 19/06/2025 09:38:45
+)
+
+Réponse API Invoice Post :
+Swagger\Client\Model\InvoiceResponseDto Object
+(
+    [container:protected] => Array
+        (
+            [uid] => b260c469-17b7-42c3-a265-a821b47987db
+            [ta] => 0
+            [tb] => 18
+            [tc] => 0
+            [td] => 18
+            [taa] => 0
+            [tab] => 5900000
+            [tac] => 0
+            [tad] => 0
+            [tae] => 0
+            [taf] => 0
+            [hab] => 5000000
+            [had] => 0
+            [vab] => 900000
+            [vad] => 0
+            [aib] => 0
+            [ts] => 0
+            [total] => 5900000
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Get :
+Swagger\Client\Model\InvoiceDetailsDto Object
+(
+    [container:protected] => Array
+        (
+            [ifu] => 3201710143718
+            [aib] => 
+            [type] => FV
+            [items] => Array
+                (
+                    [0] => Swagger\Client\Model\ItemDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [code] => 
+                                    [name] => hosting_rrsearcn
+                                    [price] => 5900000
+                                    [quantity] => 1
+                                    [tax_group] => B
+                                    [tax_specific] => 
+                                    [original_price] => 
+                                    [price_modification] => 
+                                )
+
+                        )
+
+                )
+
+            [client] => Swagger\Client\Model\ClientDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [ifu] => armel.djiko
+                            [name] => JAMES
+                            [contact] => 0688888886,ahoundedjrahoun@gmail.com
+                            [address] => cotonou,cadjehoun, 85225 Cotonou
+                        )
+
+                )
+
+            [operator] => Swagger\Client\Model\OperatorDto Object
+                (
+                    [container:protected] => Array
+                        (
+                            [id] => 
+                            [name] =>  SuperAdmin
+                        )
+
+                )
+
+            [payment] => Array
+                (
+                    [0] => Swagger\Client\Model\PaymentDto Object
+                        (
+                            [container:protected] => Array
+                                (
+                                    [name] => ESPECES
+                                    [amount] => 4720000
+                                )
+
+                        )
+
+                )
+
+            [reference] => 
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+Réponse API Invoice Confirm :
+Swagger\Client\Model\SecurityElementsDto Object
+(
+    [container:protected] => Array
+        (
+            [date_time] => 19/06/2025 09:51:59
+            [qr_code] => F;TS01000333;TEST6J4QN74T4RDF2JW2EBCR;3201710143718;20250619095159
+            [code_me_ce_fdgi] => TEST-6J4Q-N74T-4RDF-2JW2-EBCR
+            [counters] => 301/304 FV
+            [nim] => TS01000333
+            [error_code] => 
+            [error_desc] => 
+        )
+
+)
+
+QR code image saved locally: C:\xampp\htdocs\dob\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_4_6853cfae56cda.png
+Données reçues :
+Array
+(
+    [date_time] => 19/06/2025 09:51:59
+    [qr_code] => /C:\xampp\htdocs\dob\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_4_6853cfae56cda.png
+    [code_me_ce_fdgi] => TEST-6J4Q-N74T-4RDF-2JW2-EBCR
+    [counters] => 301/304 FV
+    [nim] => TS01000333
+)
+
+Données normalisées :
+Array
+(
+    [dateTime] => 19/06/2025 09:51:59
+    [qrCode] => /C:\xampp\htdocs\dob\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_4_6853cfae56cda.png
+    [codeMECeFDGI] => TEST-6J4Q-N74T-4RDF-2JW2-EBCR
+    [counters] => 301/304 FV
+    [nim] => TS01000333
+)
+
+Options actuelles :
+Array
+(
+)
+
+Options après mise à jour :
+Array
+(
+    [options_normalized_data] => {"dateTime":"19\/06\/2025 09:51:59","qrCode":"\/C:\\xampp\\htdocs\\dob\\dolibarr\\htdocs\\compta\\facture\\normaliser\/temp_qr\/qr_invoice_4_6853cfae56cda.png","codeMECeFDGI":"TEST-6J4Q-N74T-4RDF-2JW2-EBCR","counters":"301\/304 FV","nim":"TS01000333"}
+    [options_is_normalized] => 1
+    [options_normalize_date] => 1750323119
+    [options_code_mecef_dgi] => TEST-6J4Q-N74T-4RDF-2JW2-EBCR
+    [options_nim] => TS01000333
+    [options_qr_code] => /C:\xampp\htdocs\dob\dolibarr\htdocs\compta\facture\normaliser/temp_qr/qr_invoice_4_6853cfae56cda.png
+    [options_counters] => 301/304 FV
+    [options_date_time] => 19/06/2025 09:51:59
+)
+
